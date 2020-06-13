@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Manufacturer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Place.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Vehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rs-zadaca5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rs-zadaca5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test-resources/db/vehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/test-resources/db/vehicles.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,11 +56,40 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../razvoj-softvera-zadaca-4-Harun292" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Zadaca5/rs-zadaca-5-amirakurtagic1" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ba.unsa.etf.rs.zadaca5" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
+      <module name="rs-zadaca5" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/openjfx-13.0.2_linux-x64_bin-sdk/javafx-sdk-13.0.2/lib --add-modules=javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -37,6 +101,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590693504993</updated>
+      <workItem from="1591984100274" duration="523000" />
+      <workItem from="1591984652143" duration="440000" />
+      <workItem from="1591985104530" duration="161000" />
+      <workItem from="1592038429977" duration="1222000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -62,6 +130,21 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
@@ -74,25 +157,44 @@
     <option name="LAST_COMMIT_MESSAGE" value="Par neprevedenih imena" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591984189239">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/64.27.1376.873@64.27.1376.873" timestamp="1591984189239" />
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592039570401">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592039570401" />
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591985043520">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/64.27.1376.873@64.27.1376.873" timestamp="1591985043520" />
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2" timestamp="1590696711232">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696711232" />
-    <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl" timestamp="1590771879063">
-      <screen x="1600" y="0" width="1920" height="1080" />
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl" timestamp="1591984526636">
+      <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
-    <state x="2044" y="101" key="SettingsEditor" timestamp="1590693656819">
-      <screen x="1600" y="0" width="1920" height="1080" />
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1591984526636" />
+    <state x="382" y="48" width="1024" height="852" key="SettingsEditor" timestamp="1591984140170">
+      <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2044" y="101" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693656819" />
+    <state x="382" y="48" width="1024" height="852" key="SettingsEditor/64.27.1376.873@64.27.1376.873" timestamp="1591984140170" />
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2" timestamp="1590696718462">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696718462" />
-    <state x="2365" y="435" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1590693727709">
-      <screen x="1600" y="0" width="1920" height="1080" />
+    <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591984550981">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/64.27.1376.873@64.27.1376.873" timestamp="1591984550981" />
+    <state x="612" y="379" width="583" height="206" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1592038459642">
+      <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2365" y="435" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693727709" />
+    <state x="612" y="379" width="583" height="206" key="git4idea.remote.GitConfigureRemotesDialog/64.27.1376.873@64.27.1376.873" timestamp="1592038459642" />
   </component>
 </project>
