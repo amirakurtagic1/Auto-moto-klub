@@ -39,11 +39,12 @@ class VehicleDAOBaseTest {
         assertEquals(1, owners.size());
         assertEquals("Meho", owners.get(0).getName());
         assertEquals("Mehaga", owners.get(0).getParentName());
-        assertEquals(LocalDate.of(1970,1,2), owners.get(0).getDateOfBirth());
+        assertEquals(LocalDate.of(1970, 1, 2), owners.get(0).getDateOfBirth());
         assertEquals("Sarajevo", owners.get(0).getPlaceOfBirth().getName());
         assertEquals("Zmaja od Bosne bb", owners.get(0).getLivingAddress());
         assertEquals("Sarajevo", owners.get(0).getLivingPlace().getName());
     }
+
 
     @Test
     void getVehicles() {

@@ -1,4 +1,4 @@
-package ba.unsa.etf.rs.zadaca5;
+/*package ba.unsa.etf.rs.zadaca5;
 
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -363,4 +363,4 @@ class OwnerControllerTest {
         assertEquals("Zenica", places.get(2).getName());
         assertEquals("75000", places.get(2).getPostalNumber());
     }
-}
+}*/

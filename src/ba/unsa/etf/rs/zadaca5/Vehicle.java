@@ -1,10 +1,12 @@
 package ba.unsa.etf.rs.zadaca5;
 
 public class Vehicle {
-    private int id, manufacturer, owner;
+    private int id;
+    private Owner owner;
+    private Manufacturer manufacturer;
     private String model, chasisNumber, plateNumber;
 
-    public Vehicle(int id, int manufacturer, String model, String chasisNumber, String plateNumber, int owner) {
+    public Vehicle(int id, Manufacturer manufacturer, String model, String chasisNumber, String plateNumber, Owner owner) {
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -24,19 +26,19 @@ public class Vehicle {
         this.id = id;
     }
 
-    public int getManufacturer() {
+    public Manufacturer getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(int manufacturer) {
+    public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
 
-    public int getOwner() {
+    public Owner getOwner() {
         return owner;
     }
 
-    public void setOwner(int owner) {
+    public void setOwner(Owner owner) {
         this.owner = owner;
     }
 

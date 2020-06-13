@@ -1,13 +1,15 @@
 package ba.unsa.etf.rs.zadaca5;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Owner {
-    private int id, placeOfBirth, livingPlace;
+    private int id;
+    private Place livingPlace, placeOfBirth;
     private String name, surname, parentName, livingAddress, jmbg;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
-    public Owner(int id, String name, String surname, String parentName,Date dateOfBirth, int placeOfBirth,String livingAddress,int livingPlace,String jmbg) {
+    public Owner(int id, String name, String surname, String parentName,LocalDate dateOfBirth, Place placeOfBirth,String livingAddress,Place livingPlace,String jmbg) {
         this.id = id;
         this.placeOfBirth = placeOfBirth;
         this.livingPlace = livingPlace;
@@ -30,20 +32,20 @@ public class Owner {
         this.id = id;
     }
 
-    public int getPlaceOfBirth() {
-        return placeOfBirth;
-    }
-
-    public void setPlaceOfBirth(int placeOfBirth) {
-        this.placeOfBirth = placeOfBirth;
-    }
-
-    public int getLivingPlace() {
+    public Place getLivingPlace() {
         return livingPlace;
     }
 
-    public void setLivingPlace(int livingPlace) {
+    public void setLivingPlace(Place livingPlace) {
         this.livingPlace = livingPlace;
+    }
+
+    public Place getPlaceOfBirth() {
+        return placeOfBirth;
+    }
+
+    public void setPlaceOfBirth(Place placeOfBirth) {
+        this.placeOfBirth = placeOfBirth;
     }
 
     public String getName() {
@@ -86,11 +88,11 @@ public class Owner {
         this.jmbg = jmbg;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }

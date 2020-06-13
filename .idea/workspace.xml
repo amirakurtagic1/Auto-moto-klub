@@ -19,18 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Manufacturer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Place.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Kreirane osnovne klase">
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rs-zadaca5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rs-zadaca5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test-resources/db/vehicles.db" beforeDir="false" afterPath="$PROJECT_DIR$/test-resources/db/vehicles.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/OwnerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/OwnerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/OwnerEditTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/OwnerEditTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOBaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOXMLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOXMLTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -66,11 +66,14 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="ba.unsa.etf.rs.zadaca5" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ba.unsa.etf.rs.zadaca5" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.VehicleDAOBaseTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
       <module name="rs-zadaca5" />
@@ -85,8 +88,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VehicleDAOBaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rs-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOBaseTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleDAOBaseTest.getOwners" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rs-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOBaseTest" />
+      <option name="METHOD_NAME" value="getOwners" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VehicleDAOBaseTest" />
+        <item itemvalue="JUnit.VehicleDAOBaseTest.getOwners" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -104,7 +140,7 @@
       <workItem from="1591984100274" duration="523000" />
       <workItem from="1591984652143" duration="440000" />
       <workItem from="1591985104530" duration="161000" />
-      <workItem from="1592038429977" duration="1222000" />
+      <workItem from="1592038429977" duration="6969000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -127,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590696711546</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Kreirane osnovne klase">
+      <created>1592039731156</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592039731157</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,21 +197,26 @@
     <MESSAGE value="Initial import" />
     <MESSAGE value="Popravljam datum da bude u budućnosti" />
     <MESSAGE value="Par neprevedenih imena" />
-    <option name="LAST_COMMIT_MESSAGE" value="Par neprevedenih imena" />
+    <MESSAGE value="Kreirane osnovne klase" />
+    <option name="LAST_COMMIT_MESSAGE" value="Kreirane osnovne klase" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591984189239">
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592039859293">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/64.27.1376.873@64.27.1376.873" timestamp="1591984189239" />
-    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592039570401">
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/64.27.1376.873@64.27.1376.873" timestamp="1592039859293" />
+    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1592053420618">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592039570401" />
-    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591985043520">
+    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/64.27.1376.873@64.27.1376.873" timestamp="1592053420618" />
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592053316133">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/64.27.1376.873@64.27.1376.873" timestamp="1591985043520" />
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592053316133" />
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592047321213">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/64.27.1376.873@64.27.1376.873" timestamp="1592047321213" />
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2" timestamp="1590696711232">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -178,6 +226,22 @@
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
     <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1591984526636" />
+    <state width="1330" height="216" key="GridCell.Tab.0.bottom" timestamp="1592053874822">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state width="1330" height="216" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592053874822" />
+    <state width="1330" height="216" key="GridCell.Tab.0.center" timestamp="1592053874822">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state width="1330" height="216" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592053874822" />
+    <state width="1330" height="216" key="GridCell.Tab.0.left" timestamp="1592053874821">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state width="1330" height="216" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592053874821" />
+    <state width="1330" height="216" key="GridCell.Tab.0.right" timestamp="1592053874822">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state width="1330" height="216" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592053874822" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor" timestamp="1591984140170">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
