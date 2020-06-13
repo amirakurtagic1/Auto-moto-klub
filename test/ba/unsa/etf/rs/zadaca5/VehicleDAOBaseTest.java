@@ -245,7 +245,6 @@ class VehicleDAOBaseTest {
         vehicle.setManufacturer(hyundai);
         vehicle.setModel("i30");
         dao.changeVehicle(vehicle);
-
         ObservableList<Vehicle> vehicles2 = dao.getVehicles();
         assertEquals(1, vehicles2.size());
         assertEquals("Hyundai", vehicles2.get(0).getManufacturer().getName());

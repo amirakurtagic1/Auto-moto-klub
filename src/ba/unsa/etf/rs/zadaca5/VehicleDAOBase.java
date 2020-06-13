@@ -14,7 +14,8 @@ public class VehicleDAOBase implements VehicleDAO{
     private Connection connection;
     private ObservableList<Owner> owners = FXCollections.observableArrayList();
     private PreparedStatement getOwnersQuery, getPlaceQuery, addOwnerQuery, getMaxIdForOwnerQuery, getMaxIfForPlaceQuery, addPlaceQuery, getPlacesQuery,
-                              changeOwnerQuery, deleteVehicleQuery, getManufacturersQuery, getVehiclesQuery, getManufacturerQuery, getOwnerQuery;
+                              changeOwnerQuery, deleteVehicleQuery, getManufacturersQuery, getVehiclesQuery, getManufacturerQuery, getOwnerQuery,
+                              changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery;
 
     public VehicleDAOBase(){
 
@@ -44,6 +45,10 @@ public class VehicleDAOBase implements VehicleDAO{
             getVehiclesQuery = connection.prepareStatement("select * from vehicle");
             getManufacturerQuery = connection.prepareStatement("select * from manufacturer where id=?");
             getOwnerQuery = connection.prepareStatement("select * from owner where id=?");
+            changeVehicleQuery = connection.prepareStatement("update vehicle set manufacturer=?, model=?, chasis_number=?, plate_number=?, owner=? where id=?");
+            addManufacturerQuery = connection.prepareStatement("insert into manufacturer(id, name) values(?,?)");
+            getMaxIdForManufacturerQuery = connection.prepareStatement("select MAX(id) from manufacturer");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -310,7 +315,62 @@ public class VehicleDAOBase implements VehicleDAO{
 
     @Override
     public void changeVehicle(Vehicle vehicle) {
+        boolean no = true;
+        no = doManufacturerExist(vehicle.getManufacturer());
+        if(no == true){
+            vehicle.getManufacturer().setId(getMaxIdForManufacturer() - 1);
+        }
+        try{
+            System.out.println(vehicle.getManufacturer().getId());
+            changeVehicleQuery.setInt(1, vehicle.getManufacturer().getId());
+            changeVehicleQuery.setString(2, vehicle.getModel());
+            changeVehicleQuery.setString(3, vehicle.getChasisNumber());
+            changeVehicleQuery.setString(4, vehicle.getPlateNumber());
+            changeVehicleQuery.setInt(5, vehicle.getOwner().getId());
+            changeVehicleQuery.setInt(6, vehicle.getId());
+            changeVehicleQuery.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
+    }
+
+    private boolean doManufacturerExist(Manufacturer manufacturer){
+        ObservableList<Manufacturer> manufacturers = getManufacturers();
+        boolean no = true;
+        for(Manufacturer x: manufacturers){
+            if(x.equals(manufacturer)) {
+                no=false;
+            }
+        }
+        if(no == true){
+            addManufacturer(manufacturer);
+            return no;
+        }
+        return no;
+    }
+    private void addManufacturer(Manufacturer manufacturer){
+        try{
+            int id = getMaxIdForManufacturer();
+            addManufacturerQuery.setInt(1, id);
+            addManufacturerQuery.setString(2, manufacturer.getName());
+            addManufacturerQuery.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    private int getMaxIdForManufacturer(){
+        int id = 1;
+        try {
+            ResultSet rs = getMaxIdForManufacturerQuery.executeQuery();
+            if(rs.next()) {
+                id = rs.getInt(1) + 1;
+                return id;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id;
     }
 
     @Override
