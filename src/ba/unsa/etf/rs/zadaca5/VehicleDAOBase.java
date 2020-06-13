@@ -15,7 +15,7 @@ public class VehicleDAOBase implements VehicleDAO{
     private ObservableList<Owner> owners = FXCollections.observableArrayList();
     private PreparedStatement getOwnersQuery, getPlaceQuery, addOwnerQuery, getMaxIdForOwnerQuery, getMaxIdForPlaceQuery, addPlaceQuery, getPlacesQuery,
                               changeOwnerQuery, deleteVehicleQuery, getManufacturersQuery, getVehiclesQuery, getManufacturerQuery, getOwnerQuery,
-                              changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery, deleteOwnerQuery;
+                              changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery, deleteOwnerQuery, addVehicleQuery, getMaxIdForVehicleQuery;
 
     public VehicleDAOBase(){
 
@@ -49,7 +49,8 @@ public class VehicleDAOBase implements VehicleDAO{
             addManufacturerQuery = connection.prepareStatement("insert into manufacturer(id, name) values(?,?)");
             getMaxIdForManufacturerQuery = connection.prepareStatement("select MAX(id) from manufacturer");
             deleteOwnerQuery = connection.prepareStatement("delete from owner where id=?");
-
+            addVehicleQuery = connection.prepareStatement("insert into vehicle(id,manufacturer, model, chasis_number, plate_number, owner) values(?,?,?,?,?,?)");
+            getMaxIdForVehicleQuery = connection.prepareStatement("select MAX(id) from vehicle");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -214,11 +215,11 @@ public class VehicleDAOBase implements VehicleDAO{
     public void addOwner(Owner owner) {
         boolean noForLivingPlace = true;
         boolean noForPlaceOfBirth = true;
-        noForLivingPlace = doPlaceExist(owner.getLivingPlace());
+        noForLivingPlace = doesPlaceExist(owner.getLivingPlace());
         if(noForLivingPlace == true) {
                 owner.getLivingPlace().setId(getMaxIdForPlace() - 1);
         }
-        noForPlaceOfBirth = doPlaceExist(owner.getPlaceOfBirth());
+        noForPlaceOfBirth = doesPlaceExist(owner.getPlaceOfBirth());
         if(noForPlaceOfBirth == true) {
                 owner.getPlaceOfBirth().setId(getMaxIdForPlace() - 1);
         }
@@ -240,7 +241,7 @@ public class VehicleDAOBase implements VehicleDAO{
         }
     }
 
-    private boolean doPlaceExist(Place place){
+    private boolean doesPlaceExist(Place place){
         ObservableList<Place> places = getPlaces();
         boolean no = true;
         for(Place x: places){
@@ -297,6 +298,16 @@ public class VehicleDAOBase implements VehicleDAO{
 
     @Override
     public void changeOwner(Owner owner) {
+        boolean noForLivingPlace = true;
+        boolean noForPlaceOfBirth = true;
+        noForLivingPlace = doesPlaceExist(owner.getLivingPlace());
+        if(noForLivingPlace == true) {
+            owner.getLivingPlace().setId(getMaxIdForPlace() - 1);
+        }
+        noForPlaceOfBirth = doesPlaceExist(owner.getPlaceOfBirth());
+        if(noForPlaceOfBirth == true) {
+            owner.getPlaceOfBirth().setId(getMaxIdForPlace() - 1);
+        }
         try{
             changeOwnerQuery.setString(1, owner.getName());
             changeOwnerQuery.setString(2, owner.getSurname());
@@ -336,13 +347,59 @@ public class VehicleDAOBase implements VehicleDAO{
 
     @Override
     public void addVehicle(Vehicle vehicle) {
+        boolean noForManufacturer = true;
+        noForManufacturer = doesManufacturerExist(vehicle.getManufacturer());
+        if(noForManufacturer == true){
+            vehicle.getManufacturer().setId(getMaxIdForManufacturer() - 1);
+        }
+            try {
+                boolean yes = false;
+                yes = doesOwnerExist(vehicle.getOwner());
+                if(yes == false) throw new IllegalArgumentException("Vlasnik ne postoji");
+                int id = getMaxIdForVehicle();
+                addVehicleQuery.setInt(1, id);
+                addVehicleQuery.setInt(2, vehicle.getManufacturer().getId());
+                addVehicleQuery.setString(3, vehicle.getModel());
+                addVehicleQuery.setString(4, vehicle.getChasisNumber());
+                addVehicleQuery.setString(5, vehicle.getPlateNumber());
+                addVehicleQuery.setInt(6, vehicle.getOwner().getId());
+                addVehicleQuery.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } catch (IllegalArgumentException e){
+                throw new IllegalArgumentException("Vlasnik ne postoji");
+            }
+    }
+    private int getMaxIdForVehicle(){
+        int id = 1;
+        try {
+            ResultSet rs = getMaxIdForVehicleQuery.executeQuery();
+            if(rs.next()) {
+                id = rs.getInt(1) + 1;
+                return id;
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return id;
+    }
 
+    private boolean doesOwnerExist(Owner owner){
+        boolean yes = false;
+        ObservableList<Owner> owners = getOwners();
+        for(Owner x: owners){
+            if(x.getJmbg().equals(owner.getJmbg())){
+                yes=true;
+                return yes;
+            }
+        }
+        return yes;
     }
 
     @Override
     public void changeVehicle(Vehicle vehicle) {
         boolean no = true;
-        no = doManufacturerExist(vehicle.getManufacturer());
+        no = doesManufacturerExist(vehicle.getManufacturer());
         if(no == true){
             vehicle.getManufacturer().setId(getMaxIdForManufacturer() - 1);
         }
@@ -361,12 +418,13 @@ public class VehicleDAOBase implements VehicleDAO{
 
     }
 
-    private boolean doManufacturerExist(Manufacturer manufacturer){
+    private boolean doesManufacturerExist(Manufacturer manufacturer){
         ObservableList<Manufacturer> manufacturers = getManufacturers();
         boolean no = true;
         for(Manufacturer x: manufacturers){
-            if(x.equals(manufacturer)) {
+            if(x.getName().equals(manufacturer.getName())) {
                 no=false;
+                return no;
             }
         }
         if(no == true){
