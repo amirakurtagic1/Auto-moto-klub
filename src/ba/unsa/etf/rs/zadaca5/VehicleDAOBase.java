@@ -13,9 +13,9 @@ public class VehicleDAOBase implements VehicleDAO{
     private static VehicleDAO instance = null;
     private Connection connection;
     private ObservableList<Owner> owners = FXCollections.observableArrayList();
-    private PreparedStatement getOwnersQuery, getPlaceQuery, addOwnerQuery, getMaxIdForOwnerQuery, getMaxIfForPlaceQuery, addPlaceQuery, getPlacesQuery,
+    private PreparedStatement getOwnersQuery, getPlaceQuery, addOwnerQuery, getMaxIdForOwnerQuery, getMaxIdForPlaceQuery, addPlaceQuery, getPlacesQuery,
                               changeOwnerQuery, deleteVehicleQuery, getManufacturersQuery, getVehiclesQuery, getManufacturerQuery, getOwnerQuery,
-                              changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery;
+                              changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery, deleteOwnerQuery;
 
     public VehicleDAOBase(){
 
@@ -36,9 +36,9 @@ public class VehicleDAOBase implements VehicleDAO{
             getPlaceQuery = connection.prepareStatement("select * from place where id=?");
             addOwnerQuery = connection.prepareStatement("insert into owner(id, name, surname, parent_name,date_of_birth, place_of_birth, living_address, living_place, jmbg) values(?,?,?,?,?,?,?,?,?)");
             getMaxIdForOwnerQuery = connection.prepareStatement("select MAX(id) from owner");
-            getMaxIfForPlaceQuery = connection.prepareStatement("select MAX(id) from place");
+            getMaxIdForPlaceQuery = connection.prepareStatement("select MAX(id) from place");
             addPlaceQuery = connection.prepareStatement("insert into place(id, name, postal_number) values(?,?,?)");
-            getPlacesQuery = connection.prepareStatement("select * from place order by name");
+            getPlacesQuery = connection.prepareStatement("select * from place order by name ASC");
             changeOwnerQuery = connection.prepareStatement("update owner set name = ?, surname=?,parent_name=?, date_of_birth=?, place_of_birth=?, living_address=?, living_place=?, jmbg=? where id=?");
             deleteVehicleQuery = connection.prepareStatement("delete from vehicle where id=?");
             getManufacturersQuery = connection.prepareStatement("select * from manufacturer ORDER BY name ASC");
@@ -48,6 +48,7 @@ public class VehicleDAOBase implements VehicleDAO{
             changeVehicleQuery = connection.prepareStatement("update vehicle set manufacturer=?, model=?, chasis_number=?, plate_number=?, owner=? where id=?");
             addManufacturerQuery = connection.prepareStatement("insert into manufacturer(id, name) values(?,?)");
             getMaxIdForManufacturerQuery = connection.prepareStatement("select MAX(id) from manufacturer");
+            deleteOwnerQuery = connection.prepareStatement("delete from owner where id=?");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -211,20 +212,16 @@ public class VehicleDAOBase implements VehicleDAO{
     }
     @Override
     public void addOwner(Owner owner) {
-        Place livingPlace = owner.getLivingPlace();
-        Place placeOfBirth = owner.getPlaceOfBirth();
-        ObservableList<Place> places = getPlaces();
-        boolean ifExists = false;
-        for(int i = 0; i < places.size(); i++){
-            if(livingPlace.equals(places.get(i))) ifExists = true;
+        boolean noForLivingPlace = true;
+        boolean noForPlaceOfBirth = true;
+        noForLivingPlace = doPlaceExist(owner.getLivingPlace());
+        if(noForLivingPlace == true) {
+                owner.getLivingPlace().setId(getMaxIdForPlace() - 1);
         }
-        if(ifExists == false) addPlace(livingPlace);
-        ifExists = false;
-        for(int i = 0; i < places.size(); i++){
-            if(placeOfBirth.equals(places.get(i))) ifExists = true;
+        noForPlaceOfBirth = doPlaceExist(owner.getPlaceOfBirth());
+        if(noForPlaceOfBirth == true) {
+                owner.getPlaceOfBirth().setId(getMaxIdForPlace() - 1);
         }
-        if(ifExists == false) addPlace(livingPlace);
-
         try{
             int id = getMaxIdForOwner();
             addOwnerQuery.setInt(1, id);
@@ -241,6 +238,19 @@ public class VehicleDAOBase implements VehicleDAO{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    private boolean doPlaceExist(Place place){
+        ObservableList<Place> places = getPlaces();
+        boolean no = true;
+        for(Place x: places){
+            if(x.getName().equals(place.getName()) && x.getPostalNumber().equals(place.getPostalNumber())) {
+                no = false;
+                return no;
+            }
+        }
+        if(no == true) addPlace(place);
+        return no;
     }
 
     private int getMaxIdForOwner(){
@@ -269,10 +279,11 @@ public class VehicleDAOBase implements VehicleDAO{
             throwables.printStackTrace();
         }
     }
+
     private int getMaxIdForPlace(){
         int id = 1;
         try {
-            ResultSet rs = getMaxIfForPlaceQuery.executeQuery();
+            ResultSet rs = getMaxIdForPlaceQuery.executeQuery();
             if(rs.next()) {
                 id = rs.getInt(1) + 1;
                 return id;
@@ -305,7 +316,22 @@ public class VehicleDAOBase implements VehicleDAO{
 
     @Override
     public void deleteOwner(Owner owner) {
-
+        ObservableList<Vehicle> vehicles = getVehicles();
+        boolean yes= false;
+        for(Vehicle x: vehicles){
+            if(x.getOwner().getId() == owner.getId()){
+                yes = true;
+                throw new IllegalArgumentException("Selektovani vozač posjeduje vozilo.");
+            }
+        }
+        if(yes == false){
+            try{
+                deleteOwnerQuery.setInt(1, owner.getId());
+                deleteOwnerQuery.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 
     @Override
