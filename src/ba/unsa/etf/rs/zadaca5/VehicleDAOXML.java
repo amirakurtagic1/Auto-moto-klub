@@ -60,6 +60,11 @@ public class VehicleDAOXML implements VehicleDAO {
     }
 
     @Override
+    public void addPlace(Place place) {
+
+    }
+
+    @Override
     public void close() {
 
     }

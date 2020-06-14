@@ -1,5 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -43,6 +44,9 @@ public class OwnerController {
             addressField.setText(owner.getLivingAddress());
             jmbgField.setText(owner.getJmbg());
             dateField.setValue(owner.getDateOfBirth());
+            placeOfBirth.setValue(owner.getPlaceOfBirth());
+            addressPlace.setValue(owner.getLivingPlace());
+            postalNumberField.setText(owner.getLivingPlace().getPostalNumber());
             Validation();
         }
         else {
@@ -55,6 +59,7 @@ public class OwnerController {
             dateField.getStyleClass().add("poljeNijeIspravno");
             placeOfBirth.getStyleClass().add("poljeNijeIspravno");
             addressPlace.getStyleClass().add("poljeNijeIspravno");
+            postalNumberField.getStyleClass().add("poljeNijeIspravno");
             Validation();
         }
     }
@@ -126,6 +131,16 @@ public class OwnerController {
                 jmbgField.getStyleClass().add("poljeIspravno");
             }
         }));
+        postalNumberField.textProperty().addListener(((obs, oldValue, newValue)->{
+            if(newValue == null || newValue.equals("")){
+                postalNumberField.getStyleClass().removeAll("poljeIspravno");
+                postalNumberField.getStyleClass().add("poljeNijeIspravno");
+            }
+            if(!newValue.equals("")){
+                postalNumberField.getStyleClass().removeAll("poljeNijeIspravno");
+                postalNumberField.getStyleClass().add("poljeIspravno");
+            }
+        }));
 
         dateField.valueProperty().addListener(((obs, oldValue, newValue)->{
             if(newValue.isAfter(LocalDate.now().plusDays(1))){
@@ -150,6 +165,7 @@ public class OwnerController {
             if(!newValue.equals("")){
                 addressPlace.getStyleClass().removeAll("poljeNijeIspravno");
                 addressPlace.getStyleClass().add("poljeIspravno");
+                postalNumberField.setText(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()).getPostalNumber());
             }
         });
 
@@ -164,5 +180,20 @@ public class OwnerController {
             }
         });
 
+    }
+    private Place findPlace(String name){
+        ObservableList<Place> places = instance.getPlaces();
+        Place place = new Place();
+        place = null;
+        for(Place x: places){
+            if(x.getName().equals(name)){
+                return x;
+            }
+        }
+        if(postalNumberField.getText()!= null){
+             place = new Place(0, name, postalNumberField.getText());
+            instance.addPlace(place);
+        }
+        return place;
     }
 }

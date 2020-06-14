@@ -268,6 +268,7 @@ public class VehicleDAOBase implements VehicleDAO{
         return id;
     }
 
+    @Override
     public void addPlace(Place place){
         try{
             int id = getMaxIdForPlace();
