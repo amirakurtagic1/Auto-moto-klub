@@ -1,6 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
-import javafx.collections.FXCollections;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -8,11 +8,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class VehicleController {
     public ComboBox manufacturerCombo;
@@ -44,6 +39,19 @@ public class VehicleController {
             chasisNumberField.getStyleClass().add("poljeNijeIspravno");
             plateNumberField.getStyleClass().add("poljeNijeIspravno");
             manufacturerCombo.getStyleClass().add("poljeNijeIspravno");
+            Validation();
+        }
+        else if(vehicle != null){
+            manufacturerCombo.setValue(vehicle.getManufacturer());
+            modelField.setText(vehicle.getModel());
+            chasisNumberField.setText(vehicle.getChasisNumber());
+            plateNumberField.setText(vehicle.getPlateNumber());
+            ownerCombo.setValue(vehicle.getOwner());
+
+            modelField.getStyleClass().add("poljeIspravno");
+            chasisNumberField.getStyleClass().add("poljeIspravno");
+            plateNumberField.getStyleClass().add("poljeIspravno");
+            manufacturerCombo.getStyleClass().add("poljeIspravno");
             Validation();
         }
     }
