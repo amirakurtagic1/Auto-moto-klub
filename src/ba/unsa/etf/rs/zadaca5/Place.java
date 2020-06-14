@@ -39,4 +39,9 @@ public class Place implements Serializable {
     public void setPostalNumber(String postalNumber) {
         this.postalNumber = postalNumber;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

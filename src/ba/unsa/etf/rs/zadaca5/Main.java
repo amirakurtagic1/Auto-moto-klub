@@ -10,10 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        VehicleDAO model  = VehicleDAOBase.getInstance();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-        loader.setController(new Controller(model));
-        Parent root = loader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         primaryStage.setTitle("Auto-moto klub");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javax.naming.Binding;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -40,16 +41,12 @@ public class Controller {
     public TableColumn<Vehicle, String> columnModelVehicle;
     public TableColumn<Vehicle, String> columnChasisNumberVehicle;
     public TableColumn<Vehicle, String> columnPlateNumberVehicle;
-    private VehicleDAO instance = new VehicleDAOBase();
-
-
-    public Controller(VehicleDAO instance) {
-        this.instance = instance;
-    }
+    private VehicleDAO instance;
 
 
 
     public void initialize(){
+            instance = VehicleDAOBase.getInstance();
             tableOwners.setItems(instance.getOwners());
             tableVehicles.setItems(instance.getVehicles());
             columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -71,8 +68,8 @@ public class Controller {
         Owner crntOwner = null;
         VehicleDAO model = VehicleDAOBase.getInstance();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/owner.fxml"));
-     /*   if(ownerToSend == null)
-        loader.setController(new OwnerController());*/
+        if(ownerToSend == null)
+        loader.setController(new OwnerController());
         if(ownerToSend!= null) loader.setController(new OwnerController(instance, ownerToSend));
         Parent root = loader.load();
         if(ownerToSend== null) myStage.setTitle("Dodaj vlasnika");
@@ -101,6 +98,29 @@ public class Controller {
     }
 
     public void actionRemoveOwner(ActionEvent actionEvent) {
+        if (tableOwners.getSelectionModel().getSelectedItem() != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Potvrda");
+            alert.setHeaderText("Traži se potvrda od korisnika!");
+            alert.setContentText("Jeste li sigurni da želite obrisati selektovanog vlasnika?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                if (tableOwners.getSelectionModel().getSelectedItem() != null) {
+                    try {
+                        instance.deleteOwner(tableOwners.getSelectionModel().getSelectedItem());
+                        instance.getOwners();
+                    }catch (Exception e){
+                        Alert alertForError = new Alert(Alert.AlertType.ERROR);
+                        alertForError.setTitle("Error Dialog");
+                        alertForError.setHeaderText("Došlo je do greške");
+                        alertForError.setContentText("Ne možete obrisati selektovanu osobu jer posjeduje vozilo!");
+                        alert.showAndWait();
+                    }
+                }
+
+        }
+    }
     }
 
     public void actionEditOwner(ActionEvent actionEvent) {
