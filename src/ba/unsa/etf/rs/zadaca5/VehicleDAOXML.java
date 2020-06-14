@@ -55,6 +55,11 @@ public class VehicleDAOXML implements VehicleDAO {
     }
 
     @Override
+    public void addManufacturer(String name) {
+
+    }
+
+    @Override
     public void close() {
 
     }

@@ -19,16 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodata validacija polja u kontroleru vlasnika, kao i akcija na brisanje vlasnika">
-      <change afterPath="$PROJECT_DIR$/resources/css/cssForVehicleController.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fxml/vehicle.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" afterDir="false" />
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodat korisnicki interfejs za vozila, kao i kontroler sa osnovnim metodama koje sadrzi i vlasnik kontroler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/owner.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/owner.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/MainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
       <recent name="ba.unsa.etf.rs.zadaca5" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in rs-zadaca5">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
       <module name="rs-zadaca5" />
@@ -96,7 +94,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnerEditTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainTest.testRemoveOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -105,8 +103,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.OwnerEditTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.MainTest" />
+      <option name="METHOD_NAME" value="testRemoveOwner(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleDAOXMLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleControllerTest.testPlateValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -135,26 +134,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleControllerTest" />
+      <option name="METHOD_NAME" value="testPlateValidation(org.testfx.api.FxRobot)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.OwnerEditTest" />
       <item itemvalue="JUnit.All in rs-zadaca5" />
-      <item itemvalue="JUnit.VehicleDAOXMLTest" />
       <item itemvalue="JUnit.VehicleControllerTest" />
+      <item itemvalue="JUnit.MainTest.testRemoveOwner" />
+      <item itemvalue="JUnit.VehicleControllerTest.testPlateValidation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.VehicleControllerTest.testPlateValidation" />
         <item itemvalue="JUnit.All in rs-zadaca5" />
         <item itemvalue="JUnit.VehicleControllerTest" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.VehicleDAOXMLTest" />
-        <item itemvalue="JUnit.OwnerEditTest" />
+        <item itemvalue="JUnit.MainTest.testRemoveOwner" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +172,8 @@
       <workItem from="1591984652143" duration="440000" />
       <workItem from="1591985104530" duration="161000" />
       <workItem from="1592038429977" duration="38342000" />
-      <workItem from="1592148509915" duration="2437000" />
+      <workItem from="1592148509915" duration="3190000" />
+      <workItem from="1592156730556" duration="5662000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -258,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592142180143</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Dodat korisnicki interfejs za vozila, kao i kontroler sa osnovnim metodama koje sadrzi i vlasnik kontroler">
+      <created>1592151001058</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1592151001058</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +302,8 @@
     <MESSAGE value="Kreiran korisnicki interfejs za pocetni prozor (main.fxml)" />
     <MESSAGE value="Kreiran Owner korisnicki interfejs kao i OwnerController" />
     <MESSAGE value="Dodata validacija polja u kontroleru vlasnika, kao i akcija na brisanje vlasnika" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodata validacija polja u kontroleru vlasnika, kao i akcija na brisanje vlasnika" />
+    <MESSAGE value="Dodat korisnicki interfejs za vozila, kao i kontroler sa osnovnim metodama koje sadrzi i vlasnik kontroler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodat korisnicki interfejs za vozila, kao i kontroler sa osnovnim metodama koje sadrzi i vlasnik kontroler" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592150577869">
@@ -309,10 +318,10 @@
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="401" y="265" width="723" height="410" key="#com.intellij.fileTypes.FileTypeChooser/64.27.1376.873@64.27.1376.873" timestamp="1592150175775" />
-    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592150722051">
+    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592161648720">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592150722051" />
+    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592161648720" />
     <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592047321213">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
@@ -326,32 +335,32 @@
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
     <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592150564049" />
-    <state width="1330" height="249" key="GridCell.Tab.0.bottom" timestamp="1592150948952">
+    <state width="1330" height="249" key="GridCell.Tab.0.bottom" timestamp="1592162544879">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="249" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592150948952" />
-    <state width="1330" height="249" key="GridCell.Tab.0.center" timestamp="1592150948951">
+    <state width="1330" height="249" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592162544879" />
+    <state width="1330" height="249" key="GridCell.Tab.0.center" timestamp="1592162544879">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="249" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592150948951" />
-    <state width="1330" height="249" key="GridCell.Tab.0.left" timestamp="1592150948950">
+    <state width="1330" height="249" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592162544879" />
+    <state width="1330" height="249" key="GridCell.Tab.0.left" timestamp="1592162544878">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="249" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592150948950" />
-    <state width="1330" height="249" key="GridCell.Tab.0.right" timestamp="1592150948951">
+    <state width="1330" height="249" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592162544878" />
+    <state width="1330" height="249" key="GridCell.Tab.0.right" timestamp="1592162544879">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="249" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592150948951" />
+    <state width="1330" height="249" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592162544879" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor" timestamp="1591984140170">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2044" y="101" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693656819" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor/64.27.1376.873@64.27.1376.873" timestamp="1591984140170" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592148625499">
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592151083157">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696718462" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592148625499" />
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592151083157" />
     <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591984550981">
       <screen x="64" y="27" width="1376" height="873" />
     </state>

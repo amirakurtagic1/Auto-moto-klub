@@ -433,11 +433,24 @@ public class VehicleDAOBase implements VehicleDAO{
         }
         return no;
     }
-    private void addManufacturer(Manufacturer manufacturer){
+
+    public void addManufacturer(Manufacturer manufacturer){
         try{
             int id = getMaxIdForManufacturer();
             addManufacturerQuery.setInt(1, id);
             addManufacturerQuery.setString(2, manufacturer.getName());
+            addManufacturerQuery.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public void addManufacturer(String name){
+        try{
+            int id = getMaxIdForManufacturer();
+            addManufacturerQuery.setInt(1, id);
+            addManufacturerQuery.setString(2, name);
             addManufacturerQuery.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();

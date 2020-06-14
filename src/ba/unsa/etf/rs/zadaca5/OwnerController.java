@@ -33,6 +33,9 @@ public class OwnerController {
     }
 
     public void initialize(){
+        if(instance == null) instance = VehicleDAOBase.getInstance();
+        placeOfBirth.setItems(instance.getPlaces());
+        addressPlace.setItems(instance.getPlaces());
         if(owner != null){
             nameField.setText(owner.getName());
             surnameField.setText(owner.getSurname());
@@ -40,8 +43,6 @@ public class OwnerController {
             addressField.setText(owner.getLivingAddress());
             jmbgField.setText(owner.getJmbg());
             dateField.setValue(owner.getDateOfBirth());
-            placeOfBirth.setItems(instance.getPlaces());
-            addressPlace.setItems(instance.getPlaces());
             Validation();
         }
         else {
@@ -53,7 +54,7 @@ public class OwnerController {
             jmbgField.getStyleClass().add("poljeNijeIspravno");
             dateField.getStyleClass().add("poljeNijeIspravno");
             placeOfBirth.getStyleClass().add("poljeNijeIspravno");
-            addressField.getStyleClass().add("poljeNijeIspravno");
+            addressPlace.getStyleClass().add("poljeNijeIspravno");
             Validation();
         }
     }
@@ -140,6 +141,28 @@ public class OwnerController {
                 dateField.getStyleClass().add("poljeIspravno");
             }
         }));
+
+        addressPlace.valueProperty().addListener((obs, oldValue, newValue)->{
+            if(newValue == null || newValue.equals("")){
+                addressPlace.getStyleClass().removeAll("poljeIspravno");
+                addressPlace.getStyleClass().add("poljeNijeIspravno");
+            }
+            if(!newValue.equals("")){
+                addressPlace.getStyleClass().removeAll("poljeNijeIspravno");
+                addressPlace.getStyleClass().add("poljeIspravno");
+            }
+        });
+
+        placeOfBirth.valueProperty().addListener((obs, oldValue, newValue)->{
+            if(newValue == null || newValue.equals("")){
+                placeOfBirth.getStyleClass().removeAll("poljeIspravno");
+                placeOfBirth.getStyleClass().add("poljeNijeIspravno");
+            }
+            if(!newValue.equals("")){
+                placeOfBirth.getStyleClass().removeAll("poljeNijeIspravno");
+                placeOfBirth.getStyleClass().add("poljeIspravno");
+            }
+        });
 
     }
 }

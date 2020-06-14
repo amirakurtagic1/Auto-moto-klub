@@ -239,6 +239,6 @@ public class Owner implements Serializable {
 
     @Override
     public String toString() {
-        return name.get() + " " + surname.get();
+        return surname.get() + " " + name.get();
     }
 }
