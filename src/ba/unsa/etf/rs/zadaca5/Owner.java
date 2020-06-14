@@ -237,5 +237,8 @@ public class Owner implements Serializable {
         this.dateOfBirth.set(dateOfBirth);
     }
 
-
+    @Override
+    public String toString() {
+        return name.get() + " " + surname.get();
+    }
 }

@@ -1,7 +1,5 @@
 package ba.unsa.etf.rs.zadaca5;
 
-import com.sun.prism.Image;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,9 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-
-import javax.naming.Binding;
-
 import java.io.IOException;
 import java.util.Optional;
 
@@ -93,6 +88,37 @@ public class Controller {
             }
         }
     }
+
+    private void opetAWindowAndGetVehicle(Vehicle vehicleToSend) throws IOException {
+        Stage myStage = new Stage();
+        Owner crntOwner = null;
+        VehicleDAO model = VehicleDAOBase.getInstance();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
+        if(vehicleToSend == null)
+            loader.setController(new VehicleController());
+        if(vehicleToSend!= null) loader.setController(new VehicleController(instance, vehicleToSend));
+        Parent root = loader.load();
+        if(vehicleToSend== null) myStage.setTitle("Dodaj vozilo");
+        else myStage.setTitle("Uredi vozilo");
+        myStage.initOwner(tbAddOwner.getScene().getWindow());
+        myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+        myStage.setResizable(false);
+        myStage.showAndWait();
+        VehicleController controller = loader.getController();
+        if(crntOwner == null) {
+            if (!myStage.isShowing()) {
+                Vehicle vehicle = controller.getVehicle();
+                if (vehicle != null && vehicleToSend == null) {
+                    instance.addVehicle(vehicle);
+                    instance.getVehicles();
+                }
+                else if(vehicle != null && vehicleToSend != null){
+                    instance.changeVehicle(vehicle);
+                    instance.getVehicles();
+                }
+            }
+        }
+    }
     public void actionAddOwner(ActionEvent actionEvent) throws IOException {
         opetAWindowAndGetOwner(null);
     }
@@ -133,12 +159,22 @@ public class Controller {
     }
 
     public void actionAddVehicle(ActionEvent actionEvent) {
+        try {
+            opetAWindowAndGetVehicle(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void actionRemoveVehicle(ActionEvent actionEvent) {
     }
 
     public void actionEditVehicle(ActionEvent actionEvent) {
+        try {
+            opetAWindowAndGetVehicle(tableVehicles.getSelectionModel().getSelectedItem());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
