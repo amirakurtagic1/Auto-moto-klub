@@ -105,7 +105,7 @@ public class Owner implements Serializable {
     private SimpleObjectProperty<Place> livingPlace, placeOfBirth;
     private SimpleStringProperty name, surname, parentName, livingAddress, jmbg;
     private SimpleObjectProperty<LocalDate> dateOfBirth;
-    private SimpleStringProperty nameAndSurname;
+    private String nameAndSurname;
     public Owner(int id, String name, String surname, String parentName,LocalDate dateOfBirth, Place placeOfBirth,String livingAddress,Place livingPlace,String jmbg) {
         this.id = id;
         this.placeOfBirth = new SimpleObjectProperty<Place>(placeOfBirth);
@@ -116,7 +116,6 @@ public class Owner implements Serializable {
         this.livingAddress = new SimpleStringProperty(livingAddress);
         this.jmbg = new SimpleStringProperty(jmbg);
         this.dateOfBirth = new SimpleObjectProperty<LocalDate>(dateOfBirth);
-        this.nameAndSurname = new SimpleStringProperty(name + surname);
     }
 
     public Owner(int id, SimpleObjectProperty<Place> livingPlace, SimpleObjectProperty<Place> placeOfBirth, SimpleStringProperty name, SimpleStringProperty surname, SimpleStringProperty parentName, SimpleStringProperty livingAddress, SimpleStringProperty jmbg, SimpleObjectProperty<LocalDate> dateOfBirth) {
@@ -131,7 +130,13 @@ public class Owner implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getNameAndSurname() {
+        return name.get() + " " + surname.get();
+    }
 
+    public void setNameAndSurname(String nameAndSurname) {
+        this.nameAndSurname = nameAndSurname;
+    }
 
     public int getId() {
         return id;

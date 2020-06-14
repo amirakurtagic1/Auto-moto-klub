@@ -19,7 +19,7 @@ public class VehicleController {
     public Button cancelButton;
     private VehicleDAO instance = null;
     private Vehicle vehicle;
-    private Vehicle newVehicle;
+    private Vehicle newVehicle = new Vehicle();
 
     public VehicleController(VehicleDAO instance, Vehicle vehicle) {
         this.instance = instance;

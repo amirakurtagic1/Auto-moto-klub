@@ -1,5 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,14 +46,14 @@ public class Controller {
             tableOwners.setItems(instance.getOwners());
             tableVehicles.setItems(instance.getVehicles());
             columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
-            columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("name"));
+            columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("nameAndSurname"));
           //  columnNameOwner.setCellValueFactory(cellData -> cellData.getValue().nameAndSurname());
             columnJmbgOwner.setCellValueFactory(new PropertyValueFactory<>("jmbg"));
             columnIDVehicle.setCellValueFactory(new PropertyValueFactory<>("id"));
             columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
             columnModelVehicle.setCellValueFactory(new PropertyValueFactory<>("model"));
-            //columnChasisNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("chasis_number"));
-            //columnPlateNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("plate_number"));
+            columnChasisNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("chasisNumber"));
+            columnPlateNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("plateNumber"));
 
 
     }
@@ -91,7 +92,7 @@ public class Controller {
 
     private void opetAWindowAndGetVehicle(Vehicle vehicleToSend) throws IOException {
         Stage myStage = new Stage();
-        Owner crntOwner = null;
+        Vehicle crntVehicle = null;
         VehicleDAO model = VehicleDAOBase.getInstance();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/vehicle.fxml"));
         if(vehicleToSend == null)
@@ -105,8 +106,9 @@ public class Controller {
         myStage.setResizable(false);
         myStage.showAndWait();
         VehicleController controller = loader.getController();
-        if(crntOwner == null) {
+        System.out.println(controller.getVehicle());
             if (!myStage.isShowing()) {
+                System.out.println("Doslo je ovdje");
                 Vehicle vehicle = controller.getVehicle();
                 if (vehicle != null && vehicleToSend == null) {
                     instance.addVehicle(vehicle);
@@ -115,7 +117,6 @@ public class Controller {
                 else if(vehicle != null && vehicleToSend != null){
                     instance.changeVehicle(vehicle);
                     instance.getVehicles();
-                }
             }
         }
     }
@@ -131,8 +132,7 @@ public class Controller {
             alert.setContentText("Jeste li sigurni da želite obrisati selektovanog vlasnika?");
 
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                if (tableOwners.getSelectionModel().getSelectedItem() != null) {
+            if (result.get() == ButtonType.OK && doesntHave(tableOwners.getSelectionModel().getSelectedItem()) == true) {
                     try {
                         instance.deleteOwner(tableOwners.getSelectionModel().getSelectedItem());
                         instance.getOwners();
@@ -142,11 +142,25 @@ public class Controller {
                         alertForError.setHeaderText("Došlo je do greške");
                         alertForError.setContentText("Ne možete obrisati selektovanu osobu jer posjeduje vozilo!");
                         alert.showAndWait();
-                    }
                 }
-
         }
+            else {
+                Alert alertForError = new Alert(Alert.AlertType.ERROR);
+                alertForError.setTitle("Error Dialog");
+                alertForError.setHeaderText("Došlo je do greške");
+                alertForError.setContentText("Ne možete obrisati selektovanu osobu jer posjeduje vozilo!");
+                alert.showAndWait();
+            }
     }
+    }
+
+    private boolean doesntHave(Owner owner){
+        ObservableList<Vehicle> vehicles = instance.getVehicles();
+        for(Vehicle x: vehicles){
+            if(x.getOwner().equals(owner))
+                return false;
+        }
+        return true;
     }
 
     public void actionEditOwner(ActionEvent actionEvent) {

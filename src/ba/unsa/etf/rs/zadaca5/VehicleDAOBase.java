@@ -483,12 +483,11 @@ public class VehicleDAOBase implements VehicleDAO{
 
     @Override
     public void close() {
-        if(instance == null) return;
-        try{
+     /*  try{
             instance.close();
         }catch (Exception e){
             System.out.println("Nije uspjelo zatvaranje konekcije");
         }
-        instance = null;
+        instance = null;*/
     }
 }
