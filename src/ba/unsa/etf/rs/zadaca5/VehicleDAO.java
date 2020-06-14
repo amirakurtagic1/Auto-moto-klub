@@ -2,6 +2,8 @@ package ba.unsa.etf.rs.zadaca5;
 
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
+
 public interface VehicleDAO {
     ObservableList<Owner> getOwners();
     ObservableList<Vehicle> getVehicles();

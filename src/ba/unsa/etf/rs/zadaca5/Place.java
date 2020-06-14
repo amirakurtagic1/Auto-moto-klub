@@ -1,6 +1,8 @@
 package ba.unsa.etf.rs.zadaca5;
 
-public class Place {
+import java.io.Serializable;
+
+public class Place implements Serializable {
 
     private int id;
     private String name, postalNumber;

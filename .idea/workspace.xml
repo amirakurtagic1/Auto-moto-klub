@@ -19,9 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Popunjena metoda za brisanje vlasnika">
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Popunjena metoda za dodavanje vozila">
+      <change afterPath="$PROJECT_DIR$/resources/fxml/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Manufacturer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Manufacturer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOXMLTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ba/unsa/etf/rs/zadaca5/VehicleDAOXMLTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -65,7 +74,21 @@
       <recent name="ba.unsa.etf.rs.zadaca5" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehicleDAOBaseTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
+      <module name="rs-zadaca5" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Downloads/openjfx-13.0.2_linux-x64_bin-sdk/javafx-sdk-13.0.2/lib --add-modules=javafx.controls,javafx.fxml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VehicleDAOBaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
@@ -81,22 +104,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleDAOBaseTest.addOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rs-zadaca5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOBaseTest" />
-      <option name="METHOD_NAME" value="addOwner" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="VehicleDAOBaseTest.addVehicle2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
@@ -108,22 +115,6 @@
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOBaseTest" />
       <option name="METHOD_NAME" value="addVehicle2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VehicleDAOBaseTest.changeVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rs-zadaca5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOBaseTest" />
-      <option name="METHOD_NAME" value="changeVehicle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -145,13 +136,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VehicleDAOXMLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rs-zadaca5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.VehicleDAOBaseTest" />
+      <item itemvalue="JUnit.VehicleDAOBaseTest.addVehicle2" />
+      <item itemvalue="JUnit.VehicleDAOBaseTest.deleteOwner" />
+      <item itemvalue="JUnit.VehicleDAOXMLTest" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.VehicleDAOXMLTest" />
         <item itemvalue="JUnit.VehicleDAOBaseTest" />
         <item itemvalue="JUnit.VehicleDAOBaseTest.addVehicle2" />
         <item itemvalue="JUnit.VehicleDAOBaseTest.deleteOwner" />
-        <item itemvalue="JUnit.VehicleDAOBaseTest.addOwner" />
-        <item itemvalue="JUnit.VehicleDAOBaseTest.changeVehicle" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +181,7 @@
       <workItem from="1591984100274" duration="523000" />
       <workItem from="1591984652143" duration="440000" />
       <workItem from="1591985104530" duration="161000" />
-      <workItem from="1592038429977" duration="19599000" />
+      <workItem from="1592038429977" duration="26198000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -226,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592064115801</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Popunjena metoda za dodavanje vozila">
+      <created>1592074371693</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1592074371693</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,21 +278,22 @@
     <MESSAGE value="Popunjene metode koje su vezane za Vehicles i Manufacturer u klasi VehicleDAOBase" />
     <MESSAGE value="Dodavanje novog proizvodjaca ukoliko nije postojao" />
     <MESSAGE value="Popunjena metoda za brisanje vlasnika" />
-    <option name="LAST_COMMIT_MESSAGE" value="Popunjena metoda za brisanje vlasnika" />
+    <MESSAGE value="Popunjena metoda za dodavanje vozila" />
+    <option name="LAST_COMMIT_MESSAGE" value="Popunjena metoda za dodavanje vozila" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592039859293">
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592078129165">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/64.27.1376.873@64.27.1376.873" timestamp="1592039859293" />
-    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1592067691607">
+    <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/64.27.1376.873@64.27.1376.873" timestamp="1592078129165" />
+    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1592076683518">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/64.27.1376.873@64.27.1376.873" timestamp="1592067691607" />
-    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592054233222">
+    <state x="164" y="127" width="1176" height="673" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/64.27.1376.873@64.27.1376.873" timestamp="1592076683518" />
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592076097672">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592054233222" />
+    <state x="560" y="182" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592076097672" />
     <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592047321213">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
@@ -281,40 +302,45 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696711232" />
-    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl" timestamp="1591984526636">
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl" timestamp="1592078106688">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
-    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1591984526636" />
-    <state width="1330" height="160" key="GridCell.Tab.0.bottom" timestamp="1592074074762">
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592078106688" />
+    <state width="1330" height="160" key="GridCell.Tab.0.bottom" timestamp="1592128732395">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="160" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592074074762" />
-    <state width="1330" height="160" key="GridCell.Tab.0.center" timestamp="1592074074762">
+    <state width="1330" height="160" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592128732395" />
+    <state width="1330" height="160" key="GridCell.Tab.0.center" timestamp="1592128732394">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="160" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592074074762" />
-    <state width="1330" height="160" key="GridCell.Tab.0.left" timestamp="1592074074761">
+    <state width="1330" height="160" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592128732394" />
+    <state width="1330" height="160" key="GridCell.Tab.0.left" timestamp="1592128732393">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="160" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592074074761" />
-    <state width="1330" height="160" key="GridCell.Tab.0.right" timestamp="1592074074762">
+    <state width="1330" height="160" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592128732393" />
+    <state width="1330" height="160" key="GridCell.Tab.0.right" timestamp="1592128732394">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="160" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592074074762" />
+    <state width="1330" height="160" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592128732394" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor" timestamp="1591984140170">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2044" y="101" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693656819" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor/64.27.1376.873@64.27.1376.873" timestamp="1591984140170" />
-    <state x="2156" y="259" key="Vcs.Push.Dialog.v2" timestamp="1590696718462">
-      <screen x="1600" y="0" width="1920" height="1080" />
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592078581558">
+      <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696718462" />
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592078581558" />
     <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591984550981">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/64.27.1376.873@64.27.1376.873" timestamp="1591984550981" />
+    <state x="207" y="149" width="1330" height="829" key="dock-window-1" timestamp="1592074971398">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="207" y="149" width="1330" height="829" key="dock-window-1/64.27.1376.873@64.27.1376.873" timestamp="1592074971398" />
     <state x="612" y="379" width="583" height="206" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1592038459642">
       <screen x="64" y="27" width="1376" height="873" />
     </state>

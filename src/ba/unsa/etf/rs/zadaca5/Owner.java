@@ -1,9 +1,10 @@
 package ba.unsa.etf.rs.zadaca5;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
-public class Owner {
+public class Owner implements Serializable {
     private int id;
     private Place livingPlace, placeOfBirth;
     private String name, surname, parentName, livingAddress, jmbg;

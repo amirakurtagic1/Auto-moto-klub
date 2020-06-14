@@ -1,6 +1,8 @@
 package ba.unsa.etf.rs.zadaca5;
 
-public class Manufacturer {
+import java.io.Serializable;
+
+public class Manufacturer implements Serializable {
     private int id;
     private String name;
 

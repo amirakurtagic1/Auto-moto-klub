@@ -1,6 +1,8 @@
 package ba.unsa.etf.rs.zadaca5;
 
-public class Vehicle {
+import java.io.Serializable;
+
+public class Vehicle implements Serializable {
     private int id;
     private Owner owner;
     private Manufacturer manufacturer;

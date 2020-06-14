@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rs.zadaca5;
+package ba.unsa.etf.rs.zadaca5;
 
 import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
@@ -277,4 +277,4 @@ class VehicleDAOXMLTest {
         ObservableList<Vehicle> vehicles2 = dao.getVehicles();
         assertEquals(0, vehicles2.size());
     }
-}*/
+}

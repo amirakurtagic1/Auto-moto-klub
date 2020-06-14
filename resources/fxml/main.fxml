@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.zadaca5.Controller">
+   <top>
+      <VBox prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="Opcije">
+                  <items>
+                    <RadioMenuItem mnemonicParsing="false" text="SQLIte" />
+                        <RadioMenuItem mnemonicParsing="false" text="XML" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Vlasnici">
+              <VBox prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <HBox prefHeight="41.0" prefWidth="600.0">
+                        <children>
+                           <Label text="Pretraga:">
+                              <HBox.margin>
+                                 <Insets left="10.0" top="10.0" />
+                              </HBox.margin>
+                           </Label>
+                           <TextField>
+                              <HBox.margin>
+                                 <Insets left="5.0" top="5.0" />
+                              </HBox.margin>
+                           </TextField>
+                           <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                              <HBox.margin>
+                                 <Insets left="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Button>
+                           <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                              <HBox.margin>
+                                 <Insets left="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Button>
+                           <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                              <HBox.margin>
+                                 <Insets left="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Button>
+                        </children>
+                     </HBox>
+                     <TableView prefHeight="490.0" prefWidth="700.0">
+                       <columns>
+                         <TableColumn prefWidth="75.0" text="ID" />
+                         <TableColumn prefWidth="150.0" text="Ime i prezime" />
+                           <TableColumn prefWidth="150.0" text="JMBG" />
+                       </columns>
+                        <VBox.margin>
+                           <Insets left="5.0" right="5.0" />
+                        </VBox.margin>
+                     </TableView>
+                  </children>
+              </VBox>
+          </Tab>
+          <Tab text="Vozila">
+              <VBox prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                  <children>
+                      <HBox prefHeight="41.0" prefWidth="600.0">
+                          <children>
+                              <Label text="Pretraga:">
+                                  <HBox.margin>
+                                      <Insets left="10.0" top="10.0" />
+                                  </HBox.margin>
+                              </Label>
+                              <TextField>
+                                  <HBox.margin>
+                                      <Insets left="5.0" top="5.0" />
+                                  </HBox.margin>
+                              </TextField>
+                              <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                                  <HBox.margin>
+                                      <Insets left="5.0" top="5.0" />
+                                  </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                                  <HBox.margin>
+                                      <Insets left="5.0" top="5.0" />
+                                  </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" prefWidth="35.0" text="Button">
+                                  <HBox.margin>
+                                      <Insets left="5.0" top="5.0" />
+                                  </HBox.margin>
+                              </Button>
+                          </children>
+                      </HBox>
+                      <TableView prefHeight="490.0" prefWidth="700.0">
+                          <columns>
+                              <TableColumn prefWidth="75.0" text="ID" />
+                              <TableColumn prefWidth="150.0" text="Naziv proizvođača" />
+                              <TableColumn prefWidth="130.0" text="Naziv modela" />
+                           <TableColumn prefWidth="100.0" text="Broj šasije" />
+                           <TableColumn prefWidth="200.0" text="Broj registarskih tablica" />
+                          </columns>
+                          <VBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                          </VBox.margin>
+                      </TableView>
+                  </children>
+              </VBox>
+          </Tab>
+        </tabs>
+
+      </TabPane>
+   </center>
+</BorderPane>
