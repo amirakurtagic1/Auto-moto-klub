@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rs.zadaca5;
+package ba.unsa.etf.rs.zadaca5;
 
 import static org.junit.jupiter.api.Assertions.*;
 import javafx.application.Platform;
@@ -26,7 +26,6 @@ import org.testfx.framework.junit5.Start;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.security.acl.Owner;
 
 @ExtendWith(ApplicationExtension.class)
 class MainTest {
@@ -419,4 +418,4 @@ class MainTest {
         assertEquals(1, vehicles2.size());
         assertEquals("Golf", vehicles2.get(0).getModel());
     }
-}*/
+}
