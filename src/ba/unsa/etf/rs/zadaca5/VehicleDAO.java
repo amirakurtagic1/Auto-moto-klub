@@ -15,7 +15,7 @@ public interface VehicleDAO {
     void addVehicle(Vehicle vehicle);
     void changeVehicle(Vehicle vehicle);
     void deleteVehicle(Vehicle vehicle);
-    void addManufacturer(String name);
+    void addManufacturer(Manufacturer manufacturer);
     void addPlace(Place place);
     void close();
 

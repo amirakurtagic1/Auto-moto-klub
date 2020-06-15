@@ -1,6 +1,7 @@
 package ba.unsa.etf.rs.zadaca5;
 
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -20,6 +21,7 @@ public class VehicleController {
     private VehicleDAO instance = null;
     private Vehicle vehicle;
     private Vehicle newVehicle = new Vehicle();
+    private Manufacturer newmanufacturer = new Manufacturer();
 
     public VehicleController(VehicleDAO instance, Vehicle vehicle) {
         this.instance = instance;
@@ -70,6 +72,7 @@ public class VehicleController {
         }
     }
 
+
     private boolean everythingIsOkay(){
         if(modelField.getStyle().equals("poljeNijeIspravno")) return false;
         if(plateNumberField.getStyle().equals("poljeNijeIspravno")) return false;
@@ -86,13 +89,19 @@ public class VehicleController {
                 return x;
             }
         }
-        instance.addManufacturer(name);
+        newmanufacturer.setId(0);
+        newmanufacturer.setName(name);
+        Thread thread = new Thread(this::addManufacturer);
+        thread.start();
         for(Manufacturer x: manufacturers) {
             if (x.getName().equals(name)) {
                 return x;
             }
         }
         return null;
+    }
+    private void addManufacturer(){
+        instance.addManufacturer(newmanufacturer);
     }
 
     private Owner findOwner(String name){
@@ -105,7 +114,6 @@ public class VehicleController {
         return null;
     }
     public void actionCancelButton(ActionEvent actionEvent) {
-
         newVehicle = null;
         ((Stage)okButton.getScene().getWindow()).close();
     }

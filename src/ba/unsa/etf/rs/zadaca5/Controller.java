@@ -9,7 +9,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -106,19 +108,27 @@ public class Controller {
         myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         myStage.setResizable(false);
         myStage.showAndWait();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         VehicleController controller = loader.getController();
-        System.out.println(controller.getVehicle());
             if (!myStage.isShowing()) {
-                System.out.println("Doslo je ovdje");
-                Vehicle vehicle = controller.getVehicle();
-                if (vehicle != null && vehicleToSend == null) {
-                    instance.addVehicle(vehicle);
-                    instance.getVehicles();
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                else if(vehicle != null && vehicleToSend != null){
-                    instance.changeVehicle(vehicle);
-                    instance.getVehicles();
-            }
+                    System.out.println("Doslo je ovdje");
+                    Vehicle vehicle = controller.getVehicle();
+                    if (vehicle != null && vehicleToSend == null) {
+                        instance.addVehicle(vehicle);
+                        instance.getVehicles();
+                    } else if (vehicle != null && vehicleToSend != null) {
+                        instance.changeVehicle(vehicle);
+                        instance.getVehicles();
+                    }
         }
     }
     public void actionAddOwner(ActionEvent actionEvent) throws IOException {
