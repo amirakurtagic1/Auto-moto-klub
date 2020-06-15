@@ -1,6 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
-import javafx.beans.Observable;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.beans.XMLDecoder;
@@ -22,7 +22,6 @@ public class VehicleDAOXML implements VehicleDAO {
                             new FileInputStream("owners.xml")));
                 Object object = d.readObject();
                 ArrayList<Owner> arrayOfOwners = (ArrayList<Owner>) object;
-            System.out.println(arrayOfOwners.get(0).getDateOfBirth());
                 for(int i = 0; i < arrayOfOwners.size(); i++){
                     owners.add(arrayOfOwners.get(i));
                 }
@@ -98,18 +97,78 @@ public class VehicleDAOXML implements VehicleDAO {
 
     @Override
     public void addOwner(Owner owner) {
+        addPlaceIfDoesntExist(owner.getLivingPlace());
+        addPlaceIfDoesntExist(owner.getPlaceOfBirth());
+        ObservableList<Owner> owners = getOwners();
+        int id = owners.size() + 1;
+        owner.setId(id);
+        owners.add(owner);
+        addToXmlFileOwners(owners);
 
-
+    }
+    private void addPlaceIfDoesntExist(Place place){
+        ObservableList<Place> places = getPlaces();
+        for(Place x: places) {
+            if (x.getPostalNumber().equals(place.getPostalNumber())) return;
+        }
+        addPlace(place);
     }
 
     @Override
     public void changeOwner(Owner owner) {
-
+        ObservableList<Owner> owners  = getOwners();
+        for(int i = 0; i < owners.size(); i++){
+            if(owners.get(i).getId() == owner.getId()){
+                addPlaceIfDoesntExist(owner.getPlaceOfBirth());
+                addPlaceIfDoesntExist(owner.getLivingPlace());
+                owners.get(i).setName(owner.getName());
+                owners.get(i).setSurname(owner.getSurname());
+                owners.get(i).setParentName(owner.getParentName());
+                owners.get(i).setJmbg(owner.getJmbg());
+                owners.get(i).setLivingPlace(owner.getLivingPlace());
+                owners.get(i).setPlaceOfBirth(owner.getPlaceOfBirth());
+                owners.get(i).setLivingAddress(owner.getLivingAddress());
+                owners.get(i).setDateOfBirth(owner.getDateOfBirth());
+            }
+        }
+       addToXmlFileOwners(owners);
     }
 
     @Override
     public void deleteOwner(Owner owner) {
+        ObservableList<Owner> owners = getOwners();
+        boolean yes = false;
+        yes = vehicleOwner(owner);
+        if(yes == true) throw new IllegalArgumentException("Nemoguce obrisati vlasnika, posjeduje vozilo.");
+        else{
+            owners.remove(owner.getId() - 1);
+           addToXmlFileOwners(owners);
+        }
 
+    }
+
+    private void addToXmlFileOwners(ObservableList<Owner> owners){
+        ArrayList<Owner> arrayOfOwners = new ArrayList<>();
+        for(int i = 0; i < owners.size();i++){
+            arrayOfOwners.add(owners.get(i));
+        }
+        Object object = arrayOfOwners;
+        XMLEncoder e = null;
+        try {
+            e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("owners.xml")));
+            e.writeObject(object);
+            e.close();
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+    }
+
+    public boolean vehicleOwner(Owner owner){
+        ObservableList<Vehicle> vehicles = getVehicles();
+        for(Vehicle x: vehicles){
+            if(x.getOwner().getId() == owner.getId()) return true;
+        }
+        return false;
     }
 
     @Override
@@ -120,19 +179,7 @@ public class VehicleDAOXML implements VehicleDAO {
         if(yes == false) throw new IllegalArgumentException("Vlasnik ne postoji");
         ObservableList<Vehicle> vehicles = getVehicles();
         vehicles.add(vehicle);
-        ArrayList<Vehicle> arrayOfVehicles = new ArrayList<>();
-        for(int i = 0; i < vehicles.size();i++){
-            arrayOfVehicles.add(vehicles.get(i));
-        }
-        Object object = arrayOfVehicles;
-        XMLEncoder e = null;
-        try {
-            e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("vehicles.xml")));
-            e.writeObject(object);
-            e.close();
-        } catch (FileNotFoundException fileNotFoundException) {
-            fileNotFoundException.printStackTrace();
-        }
+       addToXmlFileVehicles(vehicles);
     }
 
     private boolean doesOwnerExist(Owner owner){
@@ -154,13 +201,28 @@ public class VehicleDAOXML implements VehicleDAO {
 
     @Override
     public void changeVehicle(Vehicle vehicle) {
-
+        ObservableList<Vehicle> vehicles = getVehicles();
+        for(int i = 0; i < vehicles.size(); i++) {
+            if(vehicles.get(i).getId() == vehicle.getId()){
+                addManufacturerIfDoesntExist(vehicle.getManufacturer());
+                vehicles.get(i).setManufacturer(vehicle.getManufacturer());
+                vehicles.get(i).setModel(vehicle.getModel());
+                vehicles.get(i).setPlateNumber(vehicle.getPlateNumber());
+                vehicles.get(i).setChasisNumber(vehicle.getChasisNumber());
+                vehicles.get(i).setOwner(vehicle.getOwner());
+            }
+        }
+      addToXmlFileVehicles(vehicles);
     }
 
     @Override
     public void deleteVehicle(Vehicle vehicle) {
         ObservableList<Vehicle> vehicles = getVehicles();
         vehicles.remove(vehicle.getId()-1);
+        addToXmlFileVehicles(vehicles);
+    }
+
+    private void addToXmlFileVehicles(ObservableList<Vehicle> vehicles){
         ArrayList<Vehicle> arrayOfVehicles = new ArrayList<>();
         for(int i = 0; i < vehicles.size();i++){
             arrayOfVehicles.add(vehicles.get(i));
@@ -205,6 +267,27 @@ public class VehicleDAOXML implements VehicleDAO {
 
     @Override
     public void addPlace(Place place) {
+        int maxId = 0;
+        ObservableList<Place> places = getPlaces();
+        for(int i = 0; i < places.size();i++){
+            if(i == places.size() - 1) maxId = i+1;
+        }
+        place.setId(maxId+1);
+        places.add(place);
+        ArrayList<Place> arrayOfPlace = new ArrayList<>();
+        for(int i = 0; i < places.size();i++){
+            arrayOfPlace.add(places.get(i));
+        }
+        Object object = arrayOfPlace;
+        XMLEncoder e = null;
+        try {
+            e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("places.xml")));
+            e.writeObject(object);
+            e.close();
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+
 
     }
 

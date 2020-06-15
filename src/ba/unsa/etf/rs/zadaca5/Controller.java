@@ -108,18 +108,8 @@ public class Controller {
         myStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
         myStage.setResizable(false);
         myStage.showAndWait();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         VehicleController controller = loader.getController();
             if (!myStage.isShowing()) {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                     System.out.println("Doslo je ovdje");
                     Vehicle vehicle = controller.getVehicle();
                     if (vehicle != null && vehicleToSend == null) {

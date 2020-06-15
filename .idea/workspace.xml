@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Popunjene metode koje daju listu vozila, proizvodjaca i mjesta">
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Popunjene metode koje dodaju novo vozilo, dodaju proizvodjaca ako ne postoji, kao i brisanje vozila">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +68,14 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.VehicleDAOXMLTest">
+    <configuration name="All in rs-zadaca5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rs-zadaca5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="VehicleDAOXMLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
@@ -82,7 +91,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleDAOXMLTest.addVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleDAOXMLTest.changeOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -92,13 +101,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
-      <option name="METHOD_NAME" value="addVehicle" />
+      <option name="METHOD_NAME" value="changeOwner" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleDAOXMLTest.addVehicle2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleDAOXMLTest.changeVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -108,13 +117,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
-      <option name="METHOD_NAME" value="addVehicle2" />
+      <option name="METHOD_NAME" value="changeVehicle" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleDAOXMLTest.deleteVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VehicleDAOXMLTest.deleteOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -124,42 +133,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
-      <option name="METHOD_NAME" value="deleteVehicle" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VehicleDAOXMLTest.getOwners" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rs-zadaca5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ba.unsa.etf.rs.zadaca5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.VehicleDAOXMLTest" />
-      <option name="METHOD_NAME" value="getOwners" />
+      <option name="METHOD_NAME" value="deleteOwner" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.VehicleDAOXMLTest.getOwners" />
       <item itemvalue="JUnit.VehicleDAOXMLTest" />
-      <item itemvalue="JUnit.VehicleDAOXMLTest.addVehicle" />
-      <item itemvalue="JUnit.VehicleDAOXMLTest.addVehicle2" />
-      <item itemvalue="JUnit.VehicleDAOXMLTest.deleteVehicle" />
+      <item itemvalue="JUnit.VehicleDAOXMLTest.deleteOwner" />
+      <item itemvalue="JUnit.VehicleDAOXMLTest.changeVehicle" />
+      <item itemvalue="JUnit.VehicleDAOXMLTest.changeOwner" />
+      <item itemvalue="JUnit.All in rs-zadaca5" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.VehicleDAOXMLTest" />
-        <item itemvalue="JUnit.VehicleDAOXMLTest.deleteVehicle" />
-        <item itemvalue="JUnit.VehicleDAOXMLTest.addVehicle2" />
-        <item itemvalue="JUnit.VehicleDAOXMLTest.addVehicle" />
-        <item itemvalue="JUnit.VehicleDAOXMLTest.getOwners" />
+        <item itemvalue="JUnit.All in rs-zadaca5" />
+        <item itemvalue="JUnit.VehicleDAOXMLTest.changeOwner" />
+        <item itemvalue="JUnit.VehicleDAOXMLTest.deleteOwner" />
+        <item itemvalue="JUnit.VehicleDAOXMLTest.changeVehicle" />
       </list>
     </recent_temporary>
   </component>
@@ -182,7 +175,7 @@
       <workItem from="1592176994868" duration="2252000" />
       <workItem from="1592179255228" duration="2569000" />
       <workItem from="1592213596151" duration="2550000" />
-      <workItem from="1592217425265" duration="5567000" />
+      <workItem from="1592217425265" duration="10684000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -317,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592220292593</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Popunjene metode koje dodaju novo vozilo, dodaju proizvodjaca ako ne postoji, kao i brisanje vozila">
+      <created>1592224360705</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1592224360705</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +360,8 @@
     <MESSAGE value="Prepravljena metoda za brisanje vlasnika(jos uvijek ne radi)" />
     <MESSAGE value="Dopunja akcija za dodavanje vlasnika" />
     <MESSAGE value="Popunjene metode koje daju listu vozila, proizvodjaca i mjesta" />
-    <option name="LAST_COMMIT_MESSAGE" value="Popunjene metode koje daju listu vozila, proizvodjaca i mjesta" />
+    <MESSAGE value="Popunjene metode koje dodaju novo vozilo, dodaju proizvodjaca ako ne postoji, kao i brisanje vozila" />
+    <option name="LAST_COMMIT_MESSAGE" value="Popunjene metode koje dodaju novo vozilo, dodaju proizvodjaca ako ne postoji, kao i brisanje vozila" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592181591140">
@@ -392,22 +393,22 @@
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
     <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592218103501" />
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592223771822">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592228235618">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592223771822" />
-    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592223771821">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592228235618" />
+    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592228235617">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592223771821" />
-    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592223771821">
+    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592228235617" />
+    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592228235616">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592223771821" />
-    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592223771821">
+    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592228235616" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592228235617">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592223771821" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592228235617" />
     <state width="1330" height="268" key="GridCell.Tab.1.bottom" timestamp="1592213619025">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
