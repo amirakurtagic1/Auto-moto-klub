@@ -7,8 +7,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 
 public class OwnerController {
     public TextField nameField;
@@ -24,7 +27,8 @@ public class OwnerController {
     public Button cancelButton;
     private VehicleDAO instance;
     private Owner owner;
-    private Owner newOwner = null;
+    private Owner newOwner = new Owner();
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/mm/yyyy");
     public OwnerController(VehicleDAO instance, Owner owner) {
         this.owner = owner;
         this.instance = instance;
@@ -47,9 +51,19 @@ public class OwnerController {
             placeOfBirth.setValue(owner.getPlaceOfBirth());
             addressPlace.setValue(owner.getLivingPlace());
             postalNumberField.setText(owner.getLivingPlace().getPostalNumber());
+
+            nameField.getStyleClass().add("poljeIspravno");
+            surnameField.getStyleClass().add("poljeIspravno");
+            parentNameField.getStyleClass().add("poljeIspravno");
+            addressField.getStyleClass().add("poljeIspravno");
+            jmbgField.getStyleClass().add("poljeIspravno");
+            dateField.getStyleClass().add("poljeIspravno");
+            placeOfBirth.getStyleClass().add("poljeIspravno");
+            addressPlace.getStyleClass().add("poljeIspravno");
+            postalNumberField.getStyleClass().add("poljeIspravno");
             Validation();
         }
-        else {
+        else{
 
             nameField.getStyleClass().add("poljeNijeIspravno");
             surnameField.getStyleClass().add("poljeNijeIspravno");
@@ -65,10 +79,36 @@ public class OwnerController {
     }
 
     public void actionOkButton(ActionEvent actionEvent) {
-      //  ((Stage) okButton.getScene().getWindow()).close();
+        if(everythingIsOkay()==true){
+                newOwner.setName(nameField.getText());
+                newOwner.setSurname(surnameField.getText());
+                newOwner.setParentName(parentNameField.getText());
+                newOwner.setLivingAddress(addressField.getText());
+                newOwner.setJmbg(jmbgField.getText());
+                newOwner.setDateOfBirth(dateField.getValue());
+                newOwner.setLivingPlace(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()));
+                newOwner.setPlaceOfBirth(findPlace(placeOfBirth.getSelectionModel().getSelectedItem().toString()));
+            ((Stage) okButton.getScene().getWindow()).close();
+        }
     }
 
+    private boolean everythingIsOkay(){
+        if(nameField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(surnameField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(parentNameField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(addressField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(jmbgField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(dateField.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(placeOfBirth.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(addressPlace.getStyleClass().contains("poljeNijeIspravno")) return false;
+        else if(postalNumberField.getStyleClass().contains("poljeNijeIspravno")) return false;
+
+        return true;
+    }
+
+
     public void actionCacelButton(ActionEvent actionEvent) {
+        newOwner=null;
         ((Stage) cancelButton.getScene().getWindow()).close();
     }
 
@@ -78,6 +118,10 @@ public class OwnerController {
     public void Validation(){
 
         nameField.textProperty().addListener(((obs, oldValue, newValue)->{
+            if(oldValue == null || oldValue.equals("")){
+                nameField.getStyleClass().removeAll("poljeIspravno");
+                nameField.getStyleClass().add("poljeNijeIspravno");
+            }
             if(newValue == null || newValue.equals("")){
                 nameField.getStyleClass().removeAll("poljeIspravno");
                 nameField.getStyleClass().add("poljeNijeIspravno");

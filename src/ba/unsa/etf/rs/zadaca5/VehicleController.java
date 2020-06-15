@@ -105,6 +105,8 @@ public class VehicleController {
         return null;
     }
     public void actionCancelButton(ActionEvent actionEvent) {
+
+        newVehicle = null;
         ((Stage)okButton.getScene().getWindow()).close();
     }
 

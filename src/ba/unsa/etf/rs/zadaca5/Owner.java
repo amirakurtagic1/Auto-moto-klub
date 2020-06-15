@@ -9,9 +9,9 @@ import java.time.LocalDate;
 import java.util.Date;
 
 public class Owner implements Serializable {
-   /* private int id;
+    private int id;
     private Place livingPlace, placeOfBirth;
-    private String name, surname, parentName, livingAddress, jmbg;
+    private String name, surname, parentName, livingAddress, jmbg, nameAndSurname;
     private LocalDate dateOfBirth;
 
     public Owner(int id, String name, String surname, String parentName,LocalDate dateOfBirth, Place placeOfBirth,String livingAddress,Place livingPlace,String jmbg) {
@@ -99,14 +99,24 @@ public class Owner implements Serializable {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }*/
+    }
+
+    public String getNameAndSurname() {
+        return name + " " + surname;
+    }
+
+    /*
 
     private int id;
     private SimpleObjectProperty<Place> livingPlace, placeOfBirth;
     private SimpleStringProperty name, surname, parentName, livingAddress, jmbg;
     private SimpleObjectProperty<LocalDate> dateOfBirth;
     private String nameAndSurname;
-    public Owner(int id, String name, String surname, String parentName,LocalDate dateOfBirth, Place placeOfBirth,String livingAddress,Place livingPlace,String jmbg) {
+
+    public Owner() {
+    }
+
+    public Owner(int id, String name, String surname, String parentName, LocalDate dateOfBirth, Place placeOfBirth, String livingAddress, Place livingPlace, String jmbg) {
         this.id = id;
         this.placeOfBirth = new SimpleObjectProperty<Place>(placeOfBirth);
         this.livingPlace = new SimpleObjectProperty<Place>(livingPlace);
@@ -132,10 +142,6 @@ public class Owner implements Serializable {
 
     public String getNameAndSurname() {
         return name.get() + " " + surname.get();
-    }
-
-    public void setNameAndSurname(String nameAndSurname) {
-        this.nameAndSurname = nameAndSurname;
     }
 
     public int getId() {
@@ -240,10 +246,10 @@ public class Owner implements Serializable {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth.set(dateOfBirth);
-    }
+    }*/
 
     @Override
     public String toString() {
-        return surname.get() + " " + name.get();
+        return surname + " " + name;
     }
 }

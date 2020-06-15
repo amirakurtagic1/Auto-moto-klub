@@ -47,7 +47,6 @@ public class Controller {
             tableVehicles.setItems(instance.getVehicles());
             columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
             columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("nameAndSurname"));
-          //  columnNameOwner.setCellValueFactory(cellData -> cellData.getValue().nameAndSurname());
             columnJmbgOwner.setCellValueFactory(new PropertyValueFactory<>("jmbg"));
             columnIDVehicle.setCellValueFactory(new PropertyValueFactory<>("id"));
             columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
@@ -75,14 +74,16 @@ public class Controller {
         myStage.setResizable(false);
         myStage.showAndWait();
         OwnerController controller = loader.getController();
-        if(crntOwner == null) {
+        if(ownerToSend == null) {
             if (!myStage.isShowing()) {
+                System.out.println("ovdje");
                 Owner owner = controller.getOwner();
                 if (owner != null && ownerToSend == null) {
                     instance.addOwner(owner);
                     instance.getOwners();
                 }
                 else if(owner != null && ownerToSend != null){
+                    owner.setId(ownerToSend.getId());
                     instance.changeOwner(owner);
                     instance.getOwners();
                 }
