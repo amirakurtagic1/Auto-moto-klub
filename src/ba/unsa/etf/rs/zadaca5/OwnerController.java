@@ -28,7 +28,7 @@ public class OwnerController {
     private VehicleDAO instance;
     private Owner owner;
     private Owner newOwner = new Owner();
-    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/mm/yyyy");
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/mm/yyyy");
     public OwnerController(VehicleDAO instance, Owner owner) {
         this.owner = owner;
         this.instance = instance;
@@ -39,6 +39,31 @@ public class OwnerController {
 
     public void initialize(){
         if(instance == null) instance = VehicleDAOBase.getInstance();
+
+        dateField.setConverter(new StringConverter<LocalDate>() {
+            String pattern = "M/d/yyyy";
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+
+            {
+                dateField.setPromptText(pattern.toLowerCase());
+            }
+
+            @Override public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        });
         placeOfBirth.setItems(instance.getPlaces());
         addressPlace.setItems(instance.getPlaces());
         if(owner != null){
@@ -79,7 +104,13 @@ public class OwnerController {
     }
 
     public void actionOkButton(ActionEvent actionEvent) {
-        if(everythingIsOkay()==true){
+        if(addressPlace.getSelectionModel().getSelectedItem() != null && postalNumberField.getText() != null && !postalNumberField.getText().equals("")) {
+            if (findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()) == null) {
+                addPlace(addressPlace.getSelectionModel().getSelectedItem().toString());
+            }
+        }
+        if(everythingIsOkay()==true && owner == null){
+            newOwner.setId(0);
                 newOwner.setName(nameField.getText());
                 newOwner.setSurname(surnameField.getText());
                 newOwner.setParentName(parentNameField.getText());
@@ -88,6 +119,19 @@ public class OwnerController {
                 newOwner.setDateOfBirth(dateField.getValue());
                 newOwner.setLivingPlace(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()));
                 newOwner.setPlaceOfBirth(findPlace(placeOfBirth.getSelectionModel().getSelectedItem().toString()));
+                instance.addOwner(newOwner);
+            ((Stage) okButton.getScene().getWindow()).close();
+        }
+        else if(everythingIsOkay() == true && owner != null){
+            owner.setName(nameField.getText());
+            owner.setSurname(surnameField.getText());
+            owner.setParentName(parentNameField.getText());
+            owner.setLivingAddress(addressField.getText());
+            owner.setJmbg(jmbgField.getText());
+            owner.setDateOfBirth(dateField.getValue());
+            owner.setLivingPlace(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()));
+            owner.setPlaceOfBirth(findPlace(placeOfBirth.getSelectionModel().getSelectedItem().toString()));
+            instance.changeOwner(owner);
             ((Stage) okButton.getScene().getWindow()).close();
         }
     }
@@ -166,14 +210,29 @@ public class OwnerController {
         }));
 
         jmbgField.textProperty().addListener(((obs, oldValue, newValue)->{
-            if(newValue == null || newValue.equals("")){
+            if(newValue == null || newValue.equals("") || newValue.length() != 13){
                 jmbgField.getStyleClass().removeAll("poljeIspravno");
                 jmbgField.getStyleClass().add("poljeNijeIspravno");
             }
-            if(!newValue.equals("")){
-                jmbgField.getStyleClass().removeAll("poljeNijeIspravno");
-                jmbgField.getStyleClass().add("poljeIspravno");
-            }
+            /*
+            if(newValue.length() == 13 && dateField.getValue() != null){
+                String[] jmbg = newValue.split("");
+                String day = jmbg[0] + jmbg[1];
+                String month = jmbg[1] + jmbg[2];
+                String year = jmbg[5] + jmbg[4] + jmbg[3];
+                LocalDate localDate = dateField.getValue();
+                int localYear = localDate.getYear();
+                int newNumber = 0, x;
+                while (localYear != 0){
+                    x = localYear%10;
+                    newNumber = newNumber*10 + x;
+                    localYear/=10;
+                }
+                System.out.println(day + " " + month + " " + year + " " + localDate.getDayOfMonth() + " " + localDate.getMonth() + " " + localDate.getYear());
+                if(day.equals(localDate.getDayOfMonth()) && month.equals(localDate.getMonth()) && year.equals(newNumber)) {*/
+                    jmbgField.getStyleClass().removeAll("poljeNijeIspravno");
+                    jmbgField.getStyleClass().add("poljeIspravno");
+
         }));
         postalNumberField.textProperty().addListener(((obs, oldValue, newValue)->{
             if(newValue == null || newValue.equals("")){
@@ -209,7 +268,8 @@ public class OwnerController {
             if(!newValue.equals("")){
                 addressPlace.getStyleClass().removeAll("poljeNijeIspravno");
                 addressPlace.getStyleClass().add("poljeIspravno");
-                postalNumberField.setText(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()).getPostalNumber());
+                if(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()) != null)
+                    postalNumberField.setText(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()).getPostalNumber());
             }
         });
 
@@ -225,6 +285,24 @@ public class OwnerController {
         });
 
     }
+
+    private void addPlace(String name){
+        Place place = new Place(0, name, postalNumberField.getText());
+        instance.addPlace(place);
+    }
+
+    private Place findPlace(String name){
+        ObservableList<Place> places = instance.getPlaces();
+        Place place = new Place();
+        place = null;
+        for(Place x: places){
+            if(x.getName().equals(name)){
+                return x;
+            }
+        }
+     return place;
+    }
+    /*
     private Place findPlace(String name){
         ObservableList<Place> places = instance.getPlaces();
         Place place = new Place();
@@ -235,9 +313,10 @@ public class OwnerController {
             }
         }
         if(postalNumberField.getText()!= null){
+            System.out.println(postalNumberField.getText());
              place = new Place(0, name, postalNumberField.getText());
             instance.addPlace(place);
         }
         return place;
-    }
+    }*/
 }

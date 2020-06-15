@@ -9,6 +9,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class VehicleController {
     public ComboBox manufacturerCombo;
@@ -33,7 +36,9 @@ public class VehicleController {
 
     public void initialize(){
         if(instance == null) instance = VehicleDAOBase.getInstance();
-        ownerCombo.setItems(instance.getOwners());
+        ObservableList<Owner> owners = instance.getOwners();
+        Collections.sort(owners, Comparator.comparing(Owner::getSurname));
+        ownerCombo.setItems(owners);
         manufacturerCombo.setItems(instance.getManufacturers());
 
         if(vehicle == null){
@@ -61,13 +66,18 @@ public class VehicleController {
 
     public void actionOkButton(ActionEvent actionEvent) {
         if(everythingIsOkay() == true) {
-            Manufacturer manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+            Manufacturer manufacturer = new Manufacturer();
+            if(findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString()) == null) {
+                 manufacturer = new Manufacturer(0, manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+            } else manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+          //  Manufacturer manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
             Owner owner = findOwner(ownerCombo.getSelectionModel().getSelectedItem().toString());
               newVehicle.setManufacturer(manufacturer);
               newVehicle.setModel(modelField.getText());
               newVehicle.setChasisNumber(chasisNumberField.getText());
               newVehicle.setPlateNumber(plateNumberField.getText());
               newVehicle.setOwner(owner);
+              instance.addVehicle(newVehicle);
               ((Stage) okButton.getScene().getWindow()).close();
         }
     }
@@ -89,7 +99,7 @@ public class VehicleController {
                 return x;
             }
         }
-        newmanufacturer.setId(0);
+     /*   newmanufacturer.setId(0);
         newmanufacturer.setName(name);
         Thread thread = new Thread(this::addManufacturer);
         thread.start();
@@ -97,7 +107,7 @@ public class VehicleController {
             if (x.getName().equals(name)) {
                 return x;
             }
-        }
+        }*/
         return null;
     }
     private void addManufacturer(){
@@ -107,9 +117,11 @@ public class VehicleController {
     private Owner findOwner(String name){
         ObservableList<Owner> owners = instance.getOwners();
         for(Owner x: owners){
-            String nameSurname = x.getName() + " " + x.getSurname();
-            if(nameSurname.equals(name))
+            String nameSurname = x.getSurname() + " " + x.getName();
+            System.out.println(nameSurname);
+            if(nameSurname.equals(name)) {
                 return x;
+            }
         }
         return null;
     }

@@ -1,5 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -44,17 +45,49 @@ public class Controller {
 
 
     public void initialize(){
-            instance = VehicleDAOBase.getInstance();
-            tableOwners.setItems(instance.getOwners());
-            tableVehicles.setItems(instance.getVehicles());
-            columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
-            columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("nameAndSurname"));
-            columnJmbgOwner.setCellValueFactory(new PropertyValueFactory<>("jmbg"));
-            columnIDVehicle.setCellValueFactory(new PropertyValueFactory<>("id"));
-            columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
-            columnModelVehicle.setCellValueFactory(new PropertyValueFactory<>("model"));
-            columnChasisNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("chasisNumber"));
-            columnPlateNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("plateNumber"));
+        ObservableList<Owner> owners = FXCollections.observableArrayList();
+        ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+            menuDb.selectedProperty().addListener((obs, oldValue, newValue)->{
+                if(newValue == true){
+                    menuXml.setSelected(false);
+                    instance = VehicleDAOBase.getInstance();
+                    tableOwners.setItems(instance.getOwners());
+                    tableVehicles.setItems(instance.getVehicles());
+                    columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
+                    columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("nameAndSurname"));
+                    columnJmbgOwner.setCellValueFactory(new PropertyValueFactory<>("jmbg"));
+                    columnIDVehicle.setCellValueFactory(new PropertyValueFactory<>("id"));
+                    columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+                    columnModelVehicle.setCellValueFactory(new PropertyValueFactory<>("model"));
+                    columnChasisNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("chasisNumber"));
+                    columnPlateNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("plateNumber"));
+                }
+                else if(newValue == false){
+                    tableOwners.setItems(owners);
+                    tableVehicles.setItems(vehicles);
+                }
+            });
+        menuXml.selectedProperty().addListener((obs, oldValue, newValue)->{
+            if(newValue == true){
+                menuDb.setSelected(false);
+                instance = new VehicleDAOXML();
+                tableOwners.setItems(instance.getOwners());
+                tableVehicles.setItems(instance.getVehicles());
+                columnIdOwner.setCellValueFactory(new PropertyValueFactory<>("id"));
+                columnNameOwner.setCellValueFactory(new PropertyValueFactory<>("nameAndSurname"));
+                columnJmbgOwner.setCellValueFactory(new PropertyValueFactory<>("jmbg"));
+                columnIDVehicle.setCellValueFactory(new PropertyValueFactory<>("id"));
+                columnManufacturer.setCellValueFactory(new PropertyValueFactory<>("manufacturer"));
+                columnModelVehicle.setCellValueFactory(new PropertyValueFactory<>("model"));
+                columnChasisNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("chasisNumber"));
+                columnPlateNumberVehicle.setCellValueFactory(new PropertyValueFactory<>("plateNumber"));
+            }
+            else if(newValue == false){
+                tableOwners.setItems(owners);
+                tableVehicles.setItems(vehicles);
+            }
+        });
+
 
 
     }
@@ -62,6 +95,7 @@ public class Controller {
 
     private void opetAWindowAndGetOwner(Owner ownerToSend) throws IOException {
         Stage myStage = new Stage();
+        System.out.println(ownerToSend);
         Owner crntOwner = null;
         VehicleDAO model = VehicleDAOBase.getInstance();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/owner.fxml"));
@@ -84,7 +118,13 @@ public class Controller {
                     instance.addOwner(owner);
                     instance.getOwners();
                 }
-                else if(owner != null && ownerToSend != null){
+            }
+        }
+        else if(ownerToSend != null){
+            if(!myStage.isShowing()){
+                System.out.println("ovdje smo došliiiiiiiii");
+                Owner owner = controller.getOwner();
+                 if(owner != null){
                     owner.setId(ownerToSend.getId());
                     instance.changeOwner(owner);
                     instance.getOwners();
@@ -166,6 +206,7 @@ public class Controller {
 
     public void actionEditOwner(ActionEvent actionEvent) {
         try {
+            if(tableOwners.getSelectionModel().getSelectedItem() != null)
             opetAWindowAndGetOwner(tableOwners.getSelectionModel().getSelectedItem());
             System.out.println(tableOwners.getSelectionModel().getSelectedItem());
         } catch (IOException e) {
@@ -186,7 +227,7 @@ public class Controller {
 
     public void actionEditVehicle(ActionEvent actionEvent) {
         try {
-            opetAWindowAndGetVehicle(tableVehicles.getSelectionModel().getSelectedItem());
+            if(tableVehicles.getSelectionModel().getSelectedItem()!= null) opetAWindowAndGetVehicle(tableVehicles.getSelectionModel().getSelectedItem());
         } catch (IOException e) {
             e.printStackTrace();
         }
