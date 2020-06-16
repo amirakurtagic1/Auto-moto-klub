@@ -175,13 +175,6 @@ public class OwnerController {
         return result;
     }
 
-    public void validationOfJmbg(){
-        if(jmbgField.getText().length() != 13){
-            jmbgField.getStyleClass().removeAll("poljeIspravno");
-            jmbgField.getStyleClass().add("poljeNijeIspravno");
-        }
-    }
-
     public void actionCacelButton(ActionEvent actionEvent) {
         newOwner=null;
         ((Stage) cancelButton.getScene().getWindow()).close();

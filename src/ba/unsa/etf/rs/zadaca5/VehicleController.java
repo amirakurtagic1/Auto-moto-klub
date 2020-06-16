@@ -116,9 +116,7 @@ public class VehicleController {
         return true;
     }
     private boolean validationOfPlateNumber(String plateNumber){
-        System.out.println(plateNumber);
-        //return Pattern.matches("^B[A-Z]{2}-[0-9]{3}$", plateNumber);
-        return  Pattern.matches("[A-Z][A-Z]([A-Z]|\\\\d)\\\\d\\\\d", plateNumber);
+        return Pattern.matches("[AEJKMO][1-9]{2}-[AEJKMO]-[1-9]{3}$", plateNumber);
     }
 
     private Manufacturer findManufacturer(String name){
@@ -128,15 +126,6 @@ public class VehicleController {
                 return x;
             }
         }
-     /*   newmanufacturer.setId(0);
-        newmanufacturer.setName(name);
-        Thread thread = new Thread(this::addManufacturer);
-        thread.start();
-        for(Manufacturer x: manufacturers) {
-            if (x.getName().equals(name)) {
-                return x;
-            }
-        }*/
         return null;
     }
     private void addManufacturer(){
@@ -193,7 +182,7 @@ public class VehicleController {
                 plateNumberField.getStyleClass().removeAll("poljeIspravno");
                 plateNumberField.getStyleClass().add("poljeNijeIspravno");
             }
-            if(!newValue.equals("")){
+            if(!newValue.equals("") && validationOfPlateNumber(newValue) == true){
                 plateNumberField.getStyleClass().removeAll("poljeNijeIspravno");
                 plateNumberField.getStyleClass().add("poljeIspravno");
             }
