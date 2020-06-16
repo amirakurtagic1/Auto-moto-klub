@@ -158,6 +158,12 @@ public class OwnerController {
         return true;
     }
 
+    public void validationOfJmbg(){
+        if(jmbgField.getText().length() != 13){
+            jmbgField.getStyleClass().removeAll("poljeIspravno");
+            jmbgField.getStyleClass().add("poljeNijeIspravno");
+        }
+    }
 
     public void actionCacelButton(ActionEvent actionEvent) {
         newOwner=null;
@@ -218,9 +224,50 @@ public class OwnerController {
         }));
 
         jmbgField.textProperty().addListener(((obs, oldValue, newValue)->{
-            if(newValue == null || newValue.equals("") || newValue.length() != 13){
+            if(newValue == null || newValue.equals("")){
                 jmbgField.getStyleClass().removeAll("poljeIspravno");
                 jmbgField.getStyleClass().add("poljeNijeIspravno");
+            }if(newValue.length() != 13){
+                jmbgField.getStyleClass().removeAll("poljeIspravno");
+                jmbgField.getStyleClass().add("poljeNijeIspravno");
+            } if(newValue.length() == 13){
+                if(dateField.getValue() == null || dateField.getValue().equals("")){
+                    jmbgField.getStyleClass().removeAll("poljeIspravno");
+                    jmbgField.getStyleClass().add("poljeNijeIspravno");
+                } else if(dateField.getValue() != null && !dateField.getValue().equals("")){
+                    jmbgField.getStyleClass().removeAll("poljeIspravno");
+                    jmbgField.getStyleClass().add("poljeNijeIspravno");
+                    String[] jmbg = newValue.split("");
+                    String day = jmbg[0] + jmbg[1];
+                    String month = jmbg[2] + jmbg[3];
+                    String year = jmbg[6] + jmbg[5] + jmbg[4];
+                    int toIntDay;
+                    int toIntMonth;
+                    int toIntYear;
+                    toIntDay  = Integer.parseInt(day);
+                    toIntMonth = Integer.parseInt(month);
+                    toIntYear = Integer.parseInt(year);
+                   // String dayOdYear = toIntDay.toString();
+                   // String monthOfYear = toIntMonth.toString();
+                    LocalDate localDate = dateField.getValue();
+                    int localYear = localDate.getYear();
+                    int newNumber = 0, x;
+                    while (localYear != 0){
+                        x = localYear%10;
+                        newNumber = newNumber*10 + x;
+                        if(localYear/100 == 0) break;
+                        localYear/=10;
+                    }
+                    if(toIntDay == localDate.getDayOfMonth() && toIntMonth == localDate.getMonth().getValue() && newNumber == toIntYear ) {
+                        if(number(jmbg)> 0 && number(jmbg)< 10 && number(jmbg) == Integer.parseInt(jmbg[12])) {
+                            jmbgField.getStyleClass().removeAll("poljeNijeIspravno");
+                            jmbgField.getStyleClass().add("poljeIspravno");
+                        }else if(number(jmbg) > 9 && number(jmbg) < 12 && number(jmbg) == Integer.parseInt(jmbg[12])){
+                            jmbgField.getStyleClass().removeAll("poljeNijeIspravno");
+                            jmbgField.getStyleClass().add("poljeIspravno");
+                        }
+                    }
+                }
             }
             /*
             if(newValue.length() == 13 && dateField.getValue() != null){
@@ -238,8 +285,6 @@ public class OwnerController {
                 }
                 System.out.println(day + " " + month + " " + year + " " + localDate.getDayOfMonth() + " " + localDate.getMonth() + " " + localDate.getYear());
                 if(day.equals(localDate.getDayOfMonth()) && month.equals(localDate.getMonth()) && year.equals(newNumber)) {*/
-                    jmbgField.getStyleClass().removeAll("poljeNijeIspravno");
-                    jmbgField.getStyleClass().add("poljeIspravno");
 
         }));
         postalNumberField.textProperty().addListener(((obs, oldValue, newValue)->{
@@ -291,6 +336,27 @@ public class OwnerController {
                 placeOfBirth.getStyleClass().add("poljeIspravno");
             }
         });
+
+    }
+
+    private int number(String[] jmbg){
+        int a = Integer.parseInt(jmbg[0]);
+        int g = Integer.parseInt(jmbg[6]);
+        int b = Integer.parseInt(jmbg[1]);
+        int c = Integer.parseInt(jmbg[2]);
+        int d = Integer.parseInt(jmbg[3]);
+        int e = Integer.parseInt(jmbg[4]);
+        int f = Integer.parseInt(jmbg[5]);
+        int h = Integer.parseInt(jmbg[7]);
+        int i = Integer.parseInt(jmbg[8]);
+        int j = Integer.parseInt(jmbg[9]);
+        int k = Integer.parseInt(jmbg[10]);
+        int l = Integer.parseInt(jmbg[11]);
+        int m = Integer.parseInt(jmbg[12]);
+
+        int n = (( 7*(a+g) + 6*(b+h) + 5*(c+i) + 4*(d+j) + 3*(e+k) + 2*(f+l) ) % 11);
+        n = 11 - n;
+        return n;
 
     }
 

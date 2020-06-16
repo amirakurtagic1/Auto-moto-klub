@@ -1,7 +1,6 @@
 package ba.unsa.etf.rs.zadaca5;
 
 
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;

@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodata mogucnost izbora u opcijama, format za datum u OwnerController, kao i dodavanje/izmjena odmah pri kliku">
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Popunja akcija za brisanje vozila, prepravljena akcija za brisanje vlasnika;&#10;U Owner klasi dodat unos datuma preko long tipa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Owner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
       <recent name="ba.unsa.etf.rs.zadaca5" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in rs-zadaca5">
+  <component name="RunManager" selected="JUnit.OwnerControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
       <module name="rs-zadaca5" />
@@ -94,7 +90,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnerControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -103,13 +99,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.MainTest" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.OwnerControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testRemoveOwner" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnerControllerTest.testJmbgValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -118,14 +114,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.MainTest" />
-      <option name="METHOD_NAME" value="testRemoveOwner(org.testfx.api.FxRobot)" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.OwnerControllerTest" />
+      <option name="METHOD_NAME" value="testJmbgValidation(org.testfx.api.FxRobot)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testRemoveVehicle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnerEditTest.testJmbgValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rs-zadaca5" />
       <extension name="coverage">
         <pattern>
@@ -134,8 +130,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ba.unsa.etf.rs.zadaca5" />
-      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.MainTest" />
-      <option name="METHOD_NAME" value="testRemoveVehicle(org.testfx.api.FxRobot)" />
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.OwnerEditTest" />
+      <option name="METHOD_NAME" value="testJmbgValidation(org.testfx.api.FxRobot)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,18 +139,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.MainTest" />
-      <item itemvalue="JUnit.MainTest.testRemoveVehicle" />
-      <item itemvalue="JUnit.MainTest.testRemoveOwner" />
       <item itemvalue="JUnit.All in rs-zadaca5" />
+      <item itemvalue="JUnit.OwnerControllerTest.testJmbgValidation" />
+      <item itemvalue="JUnit.OwnerEditTest.testJmbgValidation" />
+      <item itemvalue="JUnit.OwnerControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OwnerControllerTest" />
         <item itemvalue="JUnit.All in rs-zadaca5" />
+        <item itemvalue="JUnit.OwnerEditTest.testJmbgValidation" />
+        <item itemvalue="JUnit.OwnerControllerTest.testJmbgValidation" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MainTest.testRemoveOwner" />
-        <item itemvalue="JUnit.MainTest" />
-        <item itemvalue="JUnit.MainTest.testRemoveVehicle" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +176,7 @@
       <workItem from="1592217425265" duration="11938000" />
       <workItem from="1592245393381" duration="4608000" />
       <workItem from="1592252978637" duration="4273000" />
-      <workItem from="1592304859585" duration="10914000" />
+      <workItem from="1592304859585" duration="16159000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -336,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592258045451</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Popunja akcija za brisanje vozila, prepravljena akcija za brisanje vlasnika;&#10;U Owner klasi dodat unos datuma preko long tipa">
+      <created>1592315941018</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1592315941018</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +385,8 @@
     <MESSAGE value="Popunjene metode koje dodaju novo vozilo, dodaju proizvodjaca ako ne postoji, kao i brisanje vozila" />
     <MESSAGE value="Popunjene metode koje dodaju mjesto, brisu i mijenjaju vlasnika&#10;Dodate metode koje vracaju informacije u xmlfile zbog ponavljanja koda" />
     <MESSAGE value="Dodata mogucnost izbora u opcijama, format za datum u OwnerController, kao i dodavanje/izmjena odmah pri kliku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodata mogucnost izbora u opcijama, format za datum u OwnerController, kao i dodavanje/izmjena odmah pri kliku" />
+    <MESSAGE value="Popunja akcija za brisanje vozila, prepravljena akcija za brisanje vlasnika;&#10;U Owner klasi dodat unos datuma preko long tipa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Popunja akcija za brisanje vozila, prepravljena akcija za brisanje vlasnika;&#10;U Owner klasi dodat unos datuma preko long tipa" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592315192111">
@@ -405,6 +409,10 @@
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/64.27.1376.873@64.27.1376.873" timestamp="1592047321213" />
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1592317708779">
+      <screen x="64" y="27" width="1376" height="873" />
+    </state>
+    <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/64.27.1376.873@64.27.1376.873" timestamp="1592317708779" />
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2" timestamp="1590696711232">
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
@@ -414,22 +422,22 @@
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
     <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592315179670" />
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592315776733">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592321456020">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592315776733" />
-    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592315776730">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592321456020" />
+    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592321456019">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592315776730" />
-    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592315776730">
+    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592321456019" />
+    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592321456018">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592315776730" />
-    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592315776732">
+    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592321456018" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592321456019">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592315776732" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592321456019" />
     <state width="1330" height="268" key="GridCell.Tab.1.bottom" timestamp="1592308625825">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
@@ -451,11 +459,11 @@
     </state>
     <state x="2044" y="101" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693656819" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor/64.27.1376.873@64.27.1376.873" timestamp="1591984140170" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592258052998">
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592315980415">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696718462" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592258052998" />
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592315980415" />
     <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591984550981">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
