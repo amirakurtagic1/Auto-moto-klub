@@ -13,6 +13,8 @@ public class VehicleDAOBase implements VehicleDAO {
     private static VehicleDAO instance = null;
     private Connection connection;
     private ObservableList<Owner> owners = FXCollections.observableArrayList();
+    private ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+
     private PreparedStatement getOwnersQuery, getPlaceQuery, addOwnerQuery, getMaxIdForOwnerQuery, getMaxIdForPlaceQuery, addPlaceQuery, getPlacesQuery,
             changeOwnerQuery, deleteVehicleQuery, getManufacturersQuery, getVehiclesQuery, getManufacturerQuery, getOwnerQuery,
             changeVehicleQuery, addManufacturerQuery, getMaxIdForManufacturerQuery, deleteOwnerQuery, addVehicleQuery, getMaxIdForVehicleQuery;
@@ -129,7 +131,7 @@ public class VehicleDAOBase implements VehicleDAO {
 
     @Override
     public ObservableList<Vehicle> getVehicles() {
-        ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+        vehicles.clear();
         try {
             ResultSet rs = getVehiclesQuery.executeQuery();
             while (rs.next()) {
@@ -489,6 +491,36 @@ public class VehicleDAOBase implements VehicleDAO {
         }
     }
 
+    @Override
+    public void searchOwners(String value) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from owner where name like '%' || ? || '%'");
+            statement.setString(1, value);
+            ResultSet resultSet = statement.executeQuery();
+            owners.clear();
+            while (resultSet.next()) {
+                Owner owner = getOwnerFromResultSet(resultSet);
+                owners.add(owner);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void searchVehicles(String value) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from vehicle where model like '%' || ? || '%'");
+            statement.setString(1, value);
+            ResultSet resultSet = statement.executeQuery();
+            vehicles.clear();
+            while (resultSet.next()) {
+                Vehicle vehicle = getVehicleFromResultSet(resultSet);
+                vehicles.add(vehicle);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void close() {
        try{

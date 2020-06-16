@@ -10,9 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -79,6 +77,24 @@ public class Controller {
                 tableVehicles.setItems(vehicles);
             }
         });
+
+        fldOwner.textProperty().addListener((obs, oldValue, newValue)->{
+            if (newValue != null && !newValue.equals("")) {
+                instance = VehicleDAOBase.getInstance();
+                instance.searchOwners(newValue);
+            }
+            else instance.getOwners();
+        });
+
+        fldVehicle.textProperty().addListener((obs, oldValue, newValue)->{
+            if (newValue != null && !newValue.equals("")) {
+                instance = VehicleDAOBase.getInstance();
+                instance.searchVehicles(newValue);
+            }
+            else instance.getVehicles();
+        });
+
+
     }
 
     private void columnProperty(){

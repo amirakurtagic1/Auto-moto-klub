@@ -300,4 +300,14 @@ public class VehicleDAOXML implements VehicleDAO {
     public void close() {
 
     }
+
+    @Override
+    public void searchOwners(String value) {
+
+    }
+
+    @Override
+    public void searchVehicles(String value) {
+
+    }
 }

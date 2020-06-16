@@ -18,6 +18,9 @@ public interface VehicleDAO {
     void addManufacturer(Manufacturer manufacturer);
     void addPlace(Place place);
     void close();
+    void searchOwners(String value);
+    void searchVehicles(String value);
+
 
 
 }

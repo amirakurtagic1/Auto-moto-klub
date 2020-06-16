@@ -19,22 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodata validacija jmbg-a u OwnerControlleru">
-      <change afterPath="$PROJECT_DIR$/resources/css/cssForController.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/addPlus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/edit (2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/edit (3).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/edit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/minus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/pencil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/proba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/proba1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/probaPencil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/probaPencil1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/img/probaminus.png" afterDir="false" />
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodate ikone za button">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fxml/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleDAOXML.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RS-OnlineTutorijal8" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -191,7 +181,7 @@
       <workItem from="1592217425265" duration="11938000" />
       <workItem from="1592245393381" duration="4608000" />
       <workItem from="1592252978637" duration="4273000" />
-      <workItem from="1592304859585" duration="17496000" />
+      <workItem from="1592304859585" duration="18563000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -361,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592321617139</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Dodate ikone za button">
+      <created>1592323053116</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1592323053116</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,7 +406,8 @@
     <MESSAGE value="Dodata mogucnost izbora u opcijama, format za datum u OwnerController, kao i dodavanje/izmjena odmah pri kliku" />
     <MESSAGE value="Popunja akcija za brisanje vozila, prepravljena akcija za brisanje vlasnika;&#10;U Owner klasi dodat unos datuma preko long tipa" />
     <MESSAGE value="Dodata validacija jmbg-a u OwnerControlleru" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodata validacija jmbg-a u OwnerControlleru" />
+    <MESSAGE value="Dodate ikone za button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodate ikone za button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592315192111">
@@ -424,10 +422,10 @@
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="401" y="265" width="723" height="410" key="#com.intellij.fileTypes.FileTypeChooser/64.27.1376.873@64.27.1376.873" timestamp="1592321784200" />
-    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592214157955">
+    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592323920233">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592214157955" />
+    <state x="560" y="182" width="563" height="576" key="#com.intellij.ide.util.MemberChooser/64.27.1376.873@64.27.1376.873" timestamp="1592323920233" />
     <state x="485" y="212" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592047321213">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
@@ -440,27 +438,27 @@
       <screen x="1600" y="0" width="1920" height="1080" />
     </state>
     <state x="2155" y="81" width="809" height="906" key="CommitChangelistDialog2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696711232" />
-    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl" timestamp="1592315179670">
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl" timestamp="1592323147053">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
-    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592315179670" />
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592322842410">
+    <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592323147053" />
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592323761091">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592322842410" />
-    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592322842409">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592323761091" />
+    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592323761090">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592322842409" />
-    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592322842408">
+    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592323761090" />
+    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592323761090">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592322842408" />
-    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592322842410">
+    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592323761090" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592323761091">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592322842410" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592323761091" />
     <state width="1330" height="268" key="GridCell.Tab.1.bottom" timestamp="1592308625825">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
