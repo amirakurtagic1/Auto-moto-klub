@@ -336,6 +336,7 @@ public class VehicleDAOBase implements VehicleDAO {
         boolean yes = false;
         for (Vehicle x : vehicles) {
             if (x.getOwner().getId() == owner.getId()) {
+
                 yes = true;
                 throw new IllegalArgumentException("Selektovani vozač posjeduje vozilo.");
             }
@@ -490,11 +491,13 @@ public class VehicleDAOBase implements VehicleDAO {
 
     @Override
     public void close() {
-     /*  try{
-            instance.close();
+       try{
+            connection.close();
+            instance = null;
         }catch (Exception e){
             System.out.println("Nije uspjelo zatvaranje konekcije");
+           instance = null;
         }
-        instance = null;*/
+
     }
 }

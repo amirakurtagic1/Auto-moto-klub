@@ -22,6 +22,7 @@ public class VehicleController {
     public Button okButton;
     public Button cancelButton;
     private VehicleDAO instance = null;
+    private VehicleDAO instanceXml;
     private Vehicle vehicle;
     private Vehicle newVehicle = new Vehicle();
     private Manufacturer newmanufacturer = new Manufacturer();
@@ -35,6 +36,7 @@ public class VehicleController {
     }
 
     public void initialize(){
+        instanceXml = new VehicleDAOXML();
         if(instance == null) instance = VehicleDAOBase.getInstance();
         ObservableList<Owner> owners = instance.getOwners();
         Collections.sort(owners, Comparator.comparing(Owner::getSurname));
@@ -65,20 +67,42 @@ public class VehicleController {
 
 
     public void actionOkButton(ActionEvent actionEvent) {
-        if(everythingIsOkay() == true) {
+        if(everythingIsOkay() == true && vehicle == null) {
             Manufacturer manufacturer = new Manufacturer();
             if(findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString()) == null) {
                  manufacturer = new Manufacturer(0, manufacturerCombo.getSelectionModel().getSelectedItem().toString());
             } else manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
           //  Manufacturer manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
             Owner owner = findOwner(ownerCombo.getSelectionModel().getSelectedItem().toString());
+              newVehicle.setId(0);
               newVehicle.setManufacturer(manufacturer);
               newVehicle.setModel(modelField.getText());
               newVehicle.setChasisNumber(chasisNumberField.getText());
               newVehicle.setPlateNumber(plateNumberField.getText());
               newVehicle.setOwner(owner);
               instance.addVehicle(newVehicle);
+              instanceXml.addVehicle(newVehicle);
+              instanceXml.getVehicles();
+              instance.getVehicles();
               ((Stage) okButton.getScene().getWindow()).close();
+        }
+        else if(everythingIsOkay() && vehicle != null){
+            Manufacturer manufacturer = new Manufacturer();
+            if(findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString()) == null) {
+                manufacturer = new Manufacturer(0, manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+            } else manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+            //  Manufacturer manufacturer = findManufacturer(manufacturerCombo.getSelectionModel().getSelectedItem().toString());
+            Owner owner = findOwner(ownerCombo.getSelectionModel().getSelectedItem().toString());
+            vehicle.setModel(modelField.getText());
+            vehicle.setManufacturer(manufacturer);
+            vehicle.setChasisNumber(chasisNumberField.getText());
+            vehicle.setPlateNumber(plateNumberField.getText());
+            vehicle.setOwner(owner);
+            instance.changeVehicle(vehicle);
+            instanceXml.changeVehicle(vehicle);
+            instanceXml.getVehicles();
+            instance.getVehicles();
+            ((Stage) okButton.getScene().getWindow()).close();
         }
     }
 
@@ -112,6 +136,7 @@ public class VehicleController {
     }
     private void addManufacturer(){
         instance.addManufacturer(newmanufacturer);
+        instanceXml.addManufacturer(newmanufacturer);
     }
 
     private Owner findOwner(String name){

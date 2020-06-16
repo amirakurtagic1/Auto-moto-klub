@@ -6,9 +6,12 @@ import javafx.collections.ObservableList;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 
 
 public class VehicleDAOXML implements VehicleDAO {
@@ -178,6 +181,8 @@ public class VehicleDAOXML implements VehicleDAO {
         addManufacturerIfDoesntExist(vehicle.getManufacturer());
         if(yes == false) throw new IllegalArgumentException("Vlasnik ne postoji");
         ObservableList<Vehicle> vehicles = getVehicles();
+        int id = vehicles.size() + 1;
+        vehicle.setId(id);
         vehicles.add(vehicle);
        addToXmlFileVehicles(vehicles);
     }

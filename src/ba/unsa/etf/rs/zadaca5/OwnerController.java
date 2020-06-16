@@ -26,6 +26,7 @@ public class OwnerController {
     public Button okButton;
     public Button cancelButton;
     private VehicleDAO instance;
+    private VehicleDAO instanceXml;
     private Owner owner;
     private Owner newOwner = new Owner();
     private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/mm/yyyy");
@@ -38,6 +39,7 @@ public class OwnerController {
     }
 
     public void initialize(){
+        instanceXml = new VehicleDAOXML();
         if(instance == null) instance = VehicleDAOBase.getInstance();
 
         dateField.setConverter(new StringConverter<LocalDate>() {
@@ -110,7 +112,7 @@ public class OwnerController {
             }
         }
         if(everythingIsOkay()==true && owner == null){
-            newOwner.setId(0);
+                newOwner.setId(0);
                 newOwner.setName(nameField.getText());
                 newOwner.setSurname(surnameField.getText());
                 newOwner.setParentName(parentNameField.getText());
@@ -120,6 +122,9 @@ public class OwnerController {
                 newOwner.setLivingPlace(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()));
                 newOwner.setPlaceOfBirth(findPlace(placeOfBirth.getSelectionModel().getSelectedItem().toString()));
                 instance.addOwner(newOwner);
+                instanceXml.addOwner(newOwner);
+                instanceXml.getOwners();
+                instance.getOwners();
             ((Stage) okButton.getScene().getWindow()).close();
         }
         else if(everythingIsOkay() == true && owner != null){
@@ -132,6 +137,9 @@ public class OwnerController {
             owner.setLivingPlace(findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()));
             owner.setPlaceOfBirth(findPlace(placeOfBirth.getSelectionModel().getSelectedItem().toString()));
             instance.changeOwner(owner);
+            instanceXml.changeOwner(owner);
+            instanceXml.getOwners();
+            instance.getOwners();
             ((Stage) okButton.getScene().getWindow()).close();
         }
     }
@@ -289,6 +297,7 @@ public class OwnerController {
     private void addPlace(String name){
         Place place = new Place(0, name, postalNumberField.getText());
         instance.addPlace(place);
+        instanceXml.addPlace(place);
     }
 
     private Place findPlace(String name){

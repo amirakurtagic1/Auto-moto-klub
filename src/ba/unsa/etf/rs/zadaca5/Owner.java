@@ -5,7 +5,9 @@ import javafx.beans.property.SimpleStringProperty;
 
 import javax.naming.Binding;
 import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class Owner implements Serializable {
@@ -100,6 +102,29 @@ public class Owner implements Serializable {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public long getDateOfBirthLong(LocalDate dateOfBirth){
+        LocalDate date = dateOfBirth;
+        ZoneId zoneId = ZoneId.systemDefault(); // or: ZoneId.of("Europe/Oslo");
+        long epoch = date.atStartOfDay(zoneId).toEpochSecond();
+        return epoch;
+    }
+    public LocalDate getDateOfBirthDays(Long dateOfBirth) {
+        LocalDate date =
+                Instant.ofEpochMilli(dateOfBirth).atZone(ZoneId.systemDefault()).toLocalDate();
+        return  date;
+    }
+
+    public void setDateOfBirthDays(Long dateOfBirth) {
+        LocalDate date =
+                Instant.ofEpochMilli(dateOfBirth*100000000).atZone(ZoneId.systemDefault()).toLocalDate();
+        this.dateOfBirth = date;
+    }
+
+    public void setDateOfBirthDays(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
 
     public String getNameAndSurname() {
         return name + " " + surname;
