@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Dodata validacija postanskog broja">
+    <list default="true" id="3db735a2-37e1-42d2-8740-fcb9a2c09968" name="Default Changelist" comment="Prepravljena validacija registarskih tablica">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/OwnerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ba/unsa/etf/rs/zadaca5/VehicleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <recent name="ba.unsa.etf.rs.zadaca5" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.VehicleControllerTest.testPlateValidation">
+  <component name="RunManager" selected="JUnit.All in rs-zadaca5">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rs.zadaca5.Main" />
       <module name="rs-zadaca5" />
@@ -149,10 +147,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VehicleControllerTest.testPlateValidation" />
         <item itemvalue="JUnit.All in rs-zadaca5" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.OwnerControllerTest" />
+        <item itemvalue="JUnit.VehicleControllerTest.testPlateValidation" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.OwnerEditTest.testJmbgValidation" />
       </list>
     </recent_temporary>
@@ -179,7 +177,7 @@
       <workItem from="1592217425265" duration="11938000" />
       <workItem from="1592245393381" duration="4608000" />
       <workItem from="1592252978637" duration="4273000" />
-      <workItem from="1592304859585" duration="22373000" />
+      <workItem from="1592304859585" duration="22696000" />
     </task>
     <task id="LOCAL-00001" summary="Initial import">
       <created>1590693719082</created>
@@ -370,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592327393987</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Prepravljena validacija registarskih tablica">
+      <created>1592328118955</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1592328118955</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +399,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="Par neprevedenih imena" />
     <MESSAGE value="Kreirane osnovne klase" />
     <MESSAGE value="Kreirana VehicleDAOBase sa metodama koje su vezane za vlasnika" />
     <MESSAGE value="Popunjene metode koje su vezane za Vehicles i Manufacturer u klasi VehicleDAOBase" />
@@ -419,7 +423,8 @@
     <MESSAGE value="Dodate ikone za button" />
     <MESSAGE value="dodato pretrazivanje pomocu baze" />
     <MESSAGE value="Dodata validacija postanskog broja" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodata validacija postanskog broja" />
+    <MESSAGE value="Prepravljena validacija registarskih tablica" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prepravljena validacija registarskih tablica" />
   </component>
   <component name="WindowStateProjectService">
     <state x="210" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592315192111">
@@ -455,22 +460,22 @@
     </state>
     <state x="2236" y="267" width="432" height="487" key="FileChooserDialogImpl/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590771879063" />
     <state x="520" y="243" width="735" height="394" key="FileChooserDialogImpl/64.27.1376.873@64.27.1376.873" timestamp="1592326083481" />
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592327932915">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom" timestamp="1592328296573">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592327932915" />
-    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592327932914">
+    <state width="1330" height="181" key="GridCell.Tab.0.bottom/64.27.1376.873@64.27.1376.873" timestamp="1592328296573" />
+    <state width="1330" height="181" key="GridCell.Tab.0.center" timestamp="1592328296573">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592327932914" />
-    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592327932913">
+    <state width="1330" height="181" key="GridCell.Tab.0.center/64.27.1376.873@64.27.1376.873" timestamp="1592328296573" />
+    <state width="1330" height="181" key="GridCell.Tab.0.left" timestamp="1592328296572">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592327932913" />
-    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592327932915">
+    <state width="1330" height="181" key="GridCell.Tab.0.left/64.27.1376.873@64.27.1376.873" timestamp="1592328296572" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right" timestamp="1592328296573">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
-    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592327932915" />
+    <state width="1330" height="181" key="GridCell.Tab.0.right/64.27.1376.873@64.27.1376.873" timestamp="1592328296573" />
     <state width="1330" height="268" key="GridCell.Tab.1.bottom" timestamp="1592308625825">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
@@ -492,11 +497,11 @@
     </state>
     <state x="2044" y="101" key="SettingsEditor/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590693656819" />
     <state x="382" y="48" width="1024" height="852" key="SettingsEditor/64.27.1376.873@64.27.1376.873" timestamp="1591984140170" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592321623729">
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1592328256489">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
     <state x="2156" y="259" key="Vcs.Push.Dialog.v2/0.0.1600.900/1600.0.1920.1080@1600.0.1920.1080" timestamp="1590696718462" />
-    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592321623729" />
+    <state x="462" y="236" width="800" height="535" key="Vcs.Push.Dialog.v2/64.27.1376.873@64.27.1376.873" timestamp="1592328256489" />
     <state x="164" y="127" width="1176" height="673" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1591984550981">
       <screen x="64" y="27" width="1376" height="873" />
     </state>
