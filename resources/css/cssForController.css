@@ -1,0 +1,23 @@
+#tbAddOwner{
+    -fx-graphic: url("/img/plus.png");
+}
+
+#tbRemoveOwner{
+    -fx-graphic: url("/img/p.png");
+}
+
+#tbEditOwner{
+    -fx-graphic: url("/img/proba1.png");
+}
+
+#tbAddVehicle{
+    -fx-graphic: url("/img/plus.png");
+}
+
+#tbRemoveVehicle{
+    -fx-graphic: url("/img/p.png");
+}
+
+#tbEditVehicle{
+    -fx-graphic: url("/img/proba1.png");
+}

@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rs.zadaca5.Controller">
-   <top>
+   <stylesheets>
+       <URL value="@/css/cssForController.css" />
+   </stylesheets>
+    <top>
       <VBox prefHeight="27.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <MenuBar>
@@ -39,17 +43,17 @@
                                  <Insets left="5.0" top="5.0" />
                               </HBox.margin>
                            </TextField>
-                           <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#actionAddOwner" prefWidth="35.0" text="Button">
+                           <Button fx:id="tbAddOwner" mnemonicParsing="false" onAction="#actionAddOwner" prefWidth="35.0">
                               <HBox.margin>
                                  <Insets left="5.0" top="5.0" />
                               </HBox.margin>
                            </Button>
-                           <Button fx:id="tbRemoveOwner" mnemonicParsing="false" onAction="#actionRemoveOwner" prefWidth="35.0" text="Button">
+                           <Button fx:id="tbRemoveOwner" mnemonicParsing="false" onAction="#actionRemoveOwner" prefWidth="35.0">
                               <HBox.margin>
                                  <Insets left="5.0" top="5.0" />
                               </HBox.margin>
                            </Button>
-                           <Button fx:id="tbEditOwner" mnemonicParsing="false" onAction="#actionEditOwner" prefWidth="35.0" text="Button">
+                           <Button fx:id="tbEditOwner" mnemonicParsing="false" onAction="#actionEditOwner" prefWidth="35.0">
                               <HBox.margin>
                                  <Insets left="5.0" top="5.0" />
                               </HBox.margin>
@@ -84,17 +88,17 @@
                                       <Insets left="5.0" top="5.0" />
                                   </HBox.margin>
                               </TextField>
-                              <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#actionAddVehicle" prefWidth="35.0" text="Button">
+                              <Button fx:id="tbAddVehicle" mnemonicParsing="false" onAction="#actionAddVehicle" prefWidth="35.0">
                                   <HBox.margin>
                                       <Insets left="5.0" top="5.0" />
                                   </HBox.margin>
                               </Button>
-                              <Button fx:id="tbRemoveVehicle" mnemonicParsing="false" onAction="#actionRemoveVehicle" prefWidth="35.0" text="Button">
+                              <Button fx:id="tbRemoveVehicle" mnemonicParsing="false" onAction="#actionRemoveVehicle" prefWidth="35.0">
                                   <HBox.margin>
                                       <Insets left="5.0" top="5.0" />
                                   </HBox.margin>
                               </Button>
-                              <Button fx:id="tbEditVehicle" mnemonicParsing="false" onAction="#actionEditVehicle" prefWidth="35.0" text="Button">
+                              <Button fx:id="tbEditVehicle" mnemonicParsing="false" onAction="#actionEditVehicle" prefWidth="35.0">
                                   <HBox.margin>
                                       <Insets left="5.0" top="5.0" />
                                   </HBox.margin>
