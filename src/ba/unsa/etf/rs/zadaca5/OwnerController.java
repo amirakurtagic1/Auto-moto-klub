@@ -9,9 +9,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Formatter;
+import java.util.Scanner;
 
 public class OwnerController {
     public TextField nameField;
@@ -105,13 +109,14 @@ public class OwnerController {
         }
     }
 
-    public void actionOkButton(ActionEvent actionEvent) {
+    public void actionOkButton(ActionEvent actionEvent) throws IOException {
         if(addressPlace.getSelectionModel().getSelectedItem() != null && postalNumberField.getText() != null && !postalNumberField.getText().equals("")) {
             if (findPlace(addressPlace.getSelectionModel().getSelectedItem().toString()) == null) {
                 addPlace(addressPlace.getSelectionModel().getSelectedItem().toString());
             }
         }
-        if(everythingIsOkay()==true && owner == null){
+        if(everythingIsOkay()==true && owner == null) {
+            if (validationOfPostalNumber(postalNumberField.getText()).equals("OK")) {
                 newOwner.setId(0);
                 newOwner.setName(nameField.getText());
                 newOwner.setSurname(surnameField.getText());
@@ -125,7 +130,8 @@ public class OwnerController {
                 instanceXml.addOwner(newOwner);
                 instanceXml.getOwners();
                 instance.getOwners();
-            ((Stage) okButton.getScene().getWindow()).close();
+                ((Stage) okButton.getScene().getWindow()).close();
+            }
         }
         else if(everythingIsOkay() == true && owner != null){
             owner.setName(nameField.getText());
@@ -156,6 +162,17 @@ public class OwnerController {
         else if(postalNumberField.getStyleClass().contains("poljeNijeIspravno")) return false;
 
         return true;
+    }
+
+    private String validationOfPostalNumber(String broj) throws IOException {
+        URL url = new URL("http://c9.etf.unsa.ba/proba/postanskiBroj.php?postanskiBroj=" + broj);
+        Scanner sc = new Scanner(url.openStream());
+        StringBuffer sb = new StringBuffer();
+        while(sc.hasNext()) {
+            sb.append(sc.next());
+        }
+        String result = sb.toString();
+        return result;
     }
 
     public void validationOfJmbg(){
@@ -247,8 +264,7 @@ public class OwnerController {
                     toIntDay  = Integer.parseInt(day);
                     toIntMonth = Integer.parseInt(month);
                     toIntYear = Integer.parseInt(year);
-                   // String dayOdYear = toIntDay.toString();
-                   // String monthOfYear = toIntMonth.toString();
+
                     LocalDate localDate = dateField.getValue();
                     int localYear = localDate.getYear();
                     int newNumber = 0, x;
@@ -269,22 +285,6 @@ public class OwnerController {
                     }
                 }
             }
-            /*
-            if(newValue.length() == 13 && dateField.getValue() != null){
-                String[] jmbg = newValue.split("");
-                String day = jmbg[0] + jmbg[1];
-                String month = jmbg[1] + jmbg[2];
-                String year = jmbg[5] + jmbg[4] + jmbg[3];
-                LocalDate localDate = dateField.getValue();
-                int localYear = localDate.getYear();
-                int newNumber = 0, x;
-                while (localYear != 0){
-                    x = localYear%10;
-                    newNumber = newNumber*10 + x;
-                    localYear/=10;
-                }
-                System.out.println(day + " " + month + " " + year + " " + localDate.getDayOfMonth() + " " + localDate.getMonth() + " " + localDate.getYear());
-                if(day.equals(localDate.getDayOfMonth()) && month.equals(localDate.getMonth()) && year.equals(newNumber)) {*/
 
         }));
         postalNumberField.textProperty().addListener(((obs, oldValue, newValue)->{

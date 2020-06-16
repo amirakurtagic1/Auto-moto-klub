@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.regex.Pattern;
 
 
 public class VehicleController {
@@ -114,6 +115,11 @@ public class VehicleController {
         if(manufacturerCombo.getStyle().equals("poljeNijeIspravno")) return false;
         return true;
     }
+    private boolean validationOfPlateNumber(String plateNumber){
+        System.out.println(plateNumber);
+        //return Pattern.matches("^B[A-Z]{2}-[0-9]{3}$", plateNumber);
+        return  Pattern.matches("[A-Z][A-Z]([A-Z]|\\\\d)\\\\d\\\\d", plateNumber);
+    }
 
     private Manufacturer findManufacturer(String name){
         ObservableList<Manufacturer> manufacturers = instance.getManufacturers();
@@ -192,6 +198,7 @@ public class VehicleController {
                 plateNumberField.getStyleClass().add("poljeIspravno");
             }
         }));
+
         manufacturerCombo.valueProperty().addListener((obs, oldValue, newValue)->{
             if(newValue == null || newValue.equals("")){
                 manufacturerCombo.getStyleClass().removeAll("poljeIspravno");
